@@ -1,9 +1,9 @@
 <template>
-  <v-carousel>
+  <v-carousel height="700">
     <v-carousel-item
-      v-for="(item,i) in images"
+      v-for="(image,i) in images"
       :key="i"
-      :src="item.src"
+      :src="image.src"
       reverse-transition="fade-transition"
       transition="fade-transition"
     ></v-carousel-item>

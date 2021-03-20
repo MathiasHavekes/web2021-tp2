@@ -1,30 +1,29 @@
 <template>
   <v-card
-    class="mx-auto"
+    class=parent
     max-width="344"
+    color="secondary"
+
   >
     <v-img
-      src="../assets/images/gaspesie.jpg"
+      src="../assets/images_bd/tesla_model_s.jpg"
       height="200px"
     ></v-img>
 
     <v-card-title>
-      Top western road trips
+      {{ car.title }}
     </v-card-title>
 
     <v-card-subtitle>
-      1,000 miles of wonder
+      {{ car.price }}
     </v-card-subtitle>
 
     <v-card-actions>
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
-        Explore
+      <v-btn text>
+        + Infos
       </v-btn>
 
-      <v-spacer></v-spacer>
+      <v-spacer/>
 
       <v-btn
         icon
@@ -37,9 +36,8 @@
     <v-expand-transition>
       <div v-show="show">
         <v-divider></v-divider>
-
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          {{ car.description }}
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -48,12 +46,14 @@
 
 <script>
   export default {
-    data: () => ({
-      show: false,
-    }),
+    data() {
+      return {
+        show: false,
+      }
+    },
 
     props: {
-
-    }
+      car: Object,
+    },
   }
 </script>
