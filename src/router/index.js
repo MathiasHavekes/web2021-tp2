@@ -2,6 +2,7 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import Index from "../views/Index.vue"
 import RentCar from "../views/RentCar.vue"
+import SignIn from "../views/SignIn.vue"
 import About from "../views/About.vue"
 
 Vue.use(VueRouter)
@@ -16,6 +17,11 @@ const routes = [
     path: "/rent/car",
     name: "RentCar",
     component: RentCar
+  },
+  {
+    path: "/user/signin",
+    name: "SignIn",
+    component: SignIn
   },
   {
     path: "/Apropos",
