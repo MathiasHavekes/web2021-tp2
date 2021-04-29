@@ -33,17 +33,7 @@ export default {
 
   data() {
     return { 
-      cars: [
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-        // { title: "Tesla Model S", src: require("../assets/images_bd/tesla_model_s.jpg"), description: "test", price: "$70/Jours" },
-      ]
+      cars: []
     }
   },
 
