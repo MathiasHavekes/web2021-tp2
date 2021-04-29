@@ -3,6 +3,9 @@ import VueRouter from "vue-router"
 import Index from "../views/Index.vue"
 import RentCar from "../views/RentCar.vue"
 import About from "../views/About.vue"
+import signUp from "../views/signUp.vue"
+import logIn from "../views/logIn.vue"
+import Account from "../views/Account.vue"
 
 Vue.use(VueRouter)
 
@@ -21,6 +24,21 @@ const routes = [
     path: "/Apropos",
     name: "Apropos",
     component: About
+  },
+  {
+    path: "/signUp",
+    name: "signUp",
+    component: signUp
+  },
+  {
+    path: "/logIn",
+    name: "logIn",
+    component: logIn
+  },
+  {
+    path: "/Account",
+    name: "Account",
+    component: Account
   }
 ]
 
