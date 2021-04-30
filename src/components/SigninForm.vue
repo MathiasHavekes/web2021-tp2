@@ -9,14 +9,12 @@
 
     <v-text-field
       v-model="email"
-      :rules="emailRules"
       label="Adresse mail"
       required
     ></v-text-field>
 
     <v-text-field
       v-model="password"
-      :rules="passwordRules"
       label="Mot de passe"
       type=password
       required
@@ -26,6 +24,7 @@
       :disabled="!valid"
       color="primary"
       class="mr-4"
+      type="submit"
       @click="valider"
     >
       Connexion
@@ -37,14 +36,7 @@
     data: () => ({
       valid: false,
       email: '',
-      emailRules: [
-        v => !!v || 'Champ obligatoire !',
-        v => /.+@.+\..+/.test(v) || 'E-mail invalide',
-      ],
       password:'',
-      passwordRules: [
-        v => !!v || 'Champ obligatoire !',         
-      ],
     }),
 
     methods: {
@@ -52,6 +44,8 @@
         this.$refs.form.valider()
       },
     },
+
+
   }
 </script>
 <style scoped>
