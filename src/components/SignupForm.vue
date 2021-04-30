@@ -1,29 +1,23 @@
 <template>
-  <v-form
-    class="sign-up-form"
-    ref="form"
-    v-model="valid"
-    lazy-validation
-
-  >
+  <v-form class="sign-up-form" ref="form" v-model="valid" lazy-validation>
     <h2 class="title">CarBay</h2>
 
     <v-text-field
-      v-model="client.prénom"
+      v-model="client.surname"
       label="Prénom"
       :rules="nameRules"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="client.nom"
+      v-model="client.name"
       :rules="nameRules"
       label="Nom"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="client.email"
+      v-model="client.emailAddress"
       :rules="emailRules"
       label="Adresse mail"
       required
@@ -40,13 +34,13 @@
     ></v-text-field>
 
     <v-text-field
-      v-model="client.téléphone"
+      v-model="client.phoneNumber"
       label="Numéro de téléphone"
       required
     ></v-text-field>
 
     <v-checkbox
-      :rules="[v => !!v || 'Vous devez accepter pour continuer!']"
+      :rules="[(v) => !!v || 'Vous devez accepter pour continuer!']"
       label="En cliquant sur Inscription, vous acceptez nos conditions, notre politique de données et notre politique de cookies."
       required
     ></v-checkbox>
@@ -55,58 +49,60 @@
       :disabled="!valid"
       color="primary"
       class="mr-4"
-      @click="valider()"
+      @click="createUser(client)"
     >
       Inscription
-    </v-btn> 
+    </v-btn>
   </v-form>
 </template>
+
 <script>
-  export default {
-    data: () => ({
-      client :{
-      prénom: "",
-      nom : "",
-      email: "",
-      password:"",
-      téléphone: '',
-      },
-      value: String,
-      valid: true,
-
-      emailRules: [
-        v => !!v || 'Champ obligatoire !',
-        v => /.+@.+\..+/.test(v) || 'E-mail invalide',
-      ],
-
-      passwordRules: [
-        v => !!v || 'Champ obligatoire !',
-        v => (v && v.length >= 8) || 'Votre mot de passe doit contenir au moins 8 caractères!',         
-      ],
-
-      nameRules: [
-        v => !!v || 'Champ obligatoire !',     
-      ],
-    }),
-
-    methods: {
-      valider () {
-        this.$refs.form.valider()
-      },
+import { signup } from "@/api/clients";
+export default {
+  data: () => ({
+    client: {
+      surname: "",
+      name: "",
+      emailAddress: "",
+      password: "",
+      phoneNumber: "",
     },
-  }
+    value: String,
+    valid: false,
+
+    emailRules: [
+      (v) => !!v || "Champ obligatoire !",
+      (v) => /.+@.+\..+/.test(v) || "Adresse mail invalide",
+    ],
+
+    passwordRules: [
+      (v) => !!v || "Champ obligatoire !",
+      (v) =>
+        (v && v.length >= 8) ||
+        "Votre mot de passe doit contenir au moins 8 caractères!",
+    ],
+
+    nameRules: [(v) => !!v || "Champ obligatoire !"],
+  }),
+
+  methods: {
+    createUser: async function createUser(client) {
+      await signup(client);
+    },
+  },
+};
 </script>
+
 <style >
-.title{
-    margin-left: 70%;
-    width: 10%;
+.title {
+  width: 10%;
 }
 
-.sign-up-form{
-    width: 30%;
-    margin: auto;
-    padding: 20px;
-    margin-top: 5%;
-    margin-bottom: 5%;  
+.sign-up-form {
+  width: 30%;
+  margin: auto;
+  padding: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 </style>

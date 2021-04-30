@@ -1,10 +1,7 @@
 <template>
   <div class="Conteneur">
     <v-container fluid>
-
-        <h3 class="title">Historique des locations </h3>
-<br>
-
+      <h3 class="title">Historique des locations </h3>
       <v-row>
         <div v-for="location in locations"
         :key="location.id">
@@ -41,9 +38,9 @@ export default {
 </script>
 <style scoped>
 .title{
-    margin-left: 43%;
+  margin-left: 43%;
 }
 .Conteneur{
-    width: 100%;
+  width: 100%;
 }
 </style>

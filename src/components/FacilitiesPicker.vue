@@ -1,14 +1,14 @@
 <template>
   <v-container>
     <v-autocomplete
-      v-model="value"
+      v-model="startFacility"
       :items="facilitiesNames"
       dense
       label="Choisir un centre de location"
     ></v-autocomplete>
 
     <v-autocomplete
-      v-model="value"
+      v-model="endFacility"
       :items="facilitiesNames"
       dense
       label="Choisir un centre de depot"

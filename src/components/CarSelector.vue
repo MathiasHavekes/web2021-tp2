@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-autocomplete
-      v-model="value"
+      v-model="selectedCar"
       :items="carNames"
       dense
       label="Filled"
