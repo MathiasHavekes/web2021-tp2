@@ -1,24 +1,31 @@
 <template>
   <div class="rent-car">
+    <v-card
+    class="ma-5"
+    color="secondary"
+    >
     <v-form>
       <DatePicker/>
-      <DropDown style = "position:absolute;top:400px;left:20px"/>
-      <Bouton style = "position:absolute;top:490px;left:30px"/>
-      
+      <CarSelector/>
+      <LocationsPicker/>
+      <Bouton/>
     </v-form>
+    </v-card>
   </div>
 </template>
 
 <script>
-import DatePicker from "../components/DatePicker";
-import DropDown from "../components/DropDown";
-import Bouton from"../components/Button"
+import DatePicker from "@/components/DatePicker";
+import CarSelector from "@/components/CarSelector";
+import LocationsPicker from "@/components/LocationsPicker";
+import Bouton from"@/components/Button";
 
 
 export default {
   components: {
     DatePicker: DatePicker,
-    DropDown: DropDown,
+    CarSelector: CarSelector,
+    LocationsPicker : LocationsPicker,
     Bouton: Bouton
   }
 };

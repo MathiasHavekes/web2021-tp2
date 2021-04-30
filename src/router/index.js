@@ -2,10 +2,9 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import Index from "../views/Index.vue"
 import RentCar from "../views/RentCar.vue"
-import SignIn from "../views/SignIn.vue"
+import Signin from "../views/Signin.vue"
 import About from "../views/About.vue"
-import signUp from "../views/signUp.vue"
-import logIn from "../views/logIn.vue"
+import Signup from "../views/Signup.vue"
 import Account from "../views/Account.vue"
 
 Vue.use(VueRouter)
@@ -24,7 +23,7 @@ const routes = [
   {
     path: "/user/signin",
     name: "SignIn",
-    component: SignIn
+    component: Signin
   },
   {
     path: "/Apropos",
@@ -32,17 +31,17 @@ const routes = [
     component: About
   },
   {
-    path: "/signUp",
+    path: "/signup",
     name: "signUp",
-    component: signUp
+    component: Signup
   },
   {
-    path: "/logIn",
-    name: "logIn",
-    component: logIn
+    path: "/signin",
+    name: "Signin",
+    component: Signin
   },
   {
-    path: "/Account",
+    path: "/user/account",
     name: "Account",
     component: Account
   }

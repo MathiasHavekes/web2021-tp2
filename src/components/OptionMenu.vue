@@ -8,7 +8,6 @@
 
     <v-list>
       <v-list-item-group v-model="item">
-        
         <v-list-item>
           <v-switch
           v-model="$vuetify.theme.dark"
@@ -17,8 +16,6 @@
           persistent-hint
           ></v-switch>
         </v-list-item>
-
-
       </v-list-item-group>
     </v-list>
   </v-menu>
