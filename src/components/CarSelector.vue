@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-autocomplete
-            v-model="value"
-            cars="carNames"
-            dense
-            label="Filled"
+      v-model="value"
+      :items="carNames"
+      dense
+      label="Filled"
     ></v-autocomplete>
   </v-container>
 </template>
@@ -18,7 +18,7 @@
     }),
 
     async created() {
-      this.carNames = await getCars().map(cars => cars.name);
+      this.carNames = await getCars() //.map(cars => cars.name);
     }
   };
 </script>
