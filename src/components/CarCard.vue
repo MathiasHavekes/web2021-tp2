@@ -1,12 +1,11 @@
 <template>
   <v-card
-    class=parent
-    max-width="344"
+    class="ma-5"
+    max-width="350"
     color="secondary"
-
   >
     <v-img
-      src="../assets/images_bd/tesla_model_s.jpg"
+      :src="car.src"
       height="200px"
     ></v-img>
 

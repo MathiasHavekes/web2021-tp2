@@ -1,19 +1,19 @@
 <template>
     <div>
-      <InformationsCompte />
+      <AccountInformation />
       <v-spacer></v-spacer>
-      <HistoriqueLocation />
+      <LeasesHistory />
     </div>
 </template>
 
 <script>
-import InformationsCompte from "../components/informationsCompte"
-import HistoriqueLocation from "../components/historiqueLocation"
+import AccountInformation from "../components/AccountInformation"
+import LeasesHistory from "../components/LeasesHistory"
 
 export default {
   components: {
-    InformationsCompte : InformationsCompte,
-    HistoriqueLocation : HistoriqueLocation
+    AccountInformation : AccountInformation,
+    LeasesHistory : LeasesHistory
   }
 };
 </script>

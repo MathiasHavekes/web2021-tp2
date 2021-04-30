@@ -1,12 +1,14 @@
 <template>
-  <v-carousel height="700">
+  <v-carousel height="1000" cycle interval="10000">
     <v-carousel-item
       v-for="(image,i) in images"
       :key="i"
       :src="image.src"
       reverse-transition="fade-transition"
       transition="fade-transition"
-    ></v-carousel-item>
+    >
+    <h1>Venez decouvrir le Quebec</h1>
+    </v-carousel-item>
   </v-carousel>
 </template>
 
@@ -16,16 +18,16 @@
       return {
         images: [
           {
-            src: '../assets/images/mont_tramblant.jpg',
+            src: require('../assets/images/gaspesie.jpg'),
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: require('../assets/images/quebec.jpg'),
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            src: require('../assets/images/mont_tramblant.jpg'),
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: require('../assets/images/hiver_quebec.jpg'),
           },
         ],
       }

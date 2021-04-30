@@ -1,9 +1,14 @@
 <template>
   <div class="index">
     <DestinationCarousel/>
-    <v-spacer></v-spacer>
-    <v-container fluid>
-      <v-row>
+   
+    <v-container class="ma-5">
+      <h1>Des dixaines de voitures disponibles</h1>
+      <h2>Sauvez la planete en optant pour des modeles electriques ou hybrides !</h2>
+    </v-container>
+
+    <v-container class="my-16" style="width: 75%">
+      <v-row justify="center">
         <div v-for="car in cars"
         :key="car.title">
           <v-col>
@@ -16,8 +21,9 @@
 </template>
 
 <script>
-import DestinationCarousel from "../components/DestinationCarousel";
-import CarCard from "../components/CarCard";
+import DestinationCarousel from "@/components/DestinationCarousel";
+import CarCard from "@/components/CarCard";
+import { getCars } from "@/api/cars";
 
 export default {
 	components: {
@@ -27,18 +33,12 @@ export default {
 
   data() {
     return { 
-      cars: [
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-        { title: "Tesla Model S", src: "../assets/images_bd/tesla_model_s.jpg", description: "test", price: "$70/Jours" },
-      ]
+      cars: []
     }
+  },
+
+  async created() {
+    this.cars = await getCars();
   }
 };
 </script>

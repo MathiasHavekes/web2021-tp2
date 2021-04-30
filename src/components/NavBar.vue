@@ -7,7 +7,6 @@
       <OptionMenu></OptionMenu>
     </v-app-bar>
 
-
 		<v-navigation-drawer v-model="drawer" absolute temporary color="primary" dark>
       <v-list>
         <v-list-item-group v-model="item">
@@ -45,12 +44,12 @@ export default {
 
   data() {
     return {
+      
       drawer: false,
 			links: [
         { text: "Accueil", icon: "mdi-home", route: "/" },
         { text: "Mon compte", icon: "mdi-account-circle", route: "/user/account" },
 				{ text: "Louer une voiture", icon: "mdi-car-electric", route: "/rent/car" },
-				{ text: "Trouver un vol", icon: "mdi-airplane", route: "/find/flight" },
       ]
     };
   },

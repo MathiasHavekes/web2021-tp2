@@ -9,7 +9,7 @@
         <div v-for="location in locations"
         :key="location.id">
           <v-col>
-            <LocationCard :location="location"/>
+            <LeaseCard :location="location"/>
           </v-col>
         </div>
       </v-row>
@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import LocationCard from "../components/locationCard"
+import LeaseCard from "../components/LeaseCard"
 
 export default {
 
 	components: {
-        LocationCard : LocationCard
+    LeaseCard : LeaseCard
   },
 
   data() {
