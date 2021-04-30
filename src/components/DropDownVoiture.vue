@@ -4,7 +4,6 @@
       class="my-2"
       :items="items"
       label="Choisir une voiture"
-      dense
     ></v-overflow-btn>
   </v-container>
 </template>

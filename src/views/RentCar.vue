@@ -2,8 +2,10 @@
   <div class="rent-car">
     <v-form>
       <DatePicker/>
-      <DropDown style = "position:absolute;top:400px;left:20px"/>
-      <Bouton style = "position:absolute;top:490px;left:30px"/>
+      <DropDownCentre/>
+      <DropDownVoiture style = "position:absolute;top:450px;left:20px"/>
+      <Bouton style = "position:absolute;top:560px;left:30px"/>
+      
       
     </v-form>
   </div>
@@ -11,13 +13,15 @@
 
 <script>
 import DatePicker from "../components/DatePicker";
-import DropDown from "../components/DropDown";
+import DropDownVoiture from "../components/DropDownVoiture";
+import DropDownCentre from "../components/DropDownCentre";
 import Bouton from"../components/Button"
 
 export default {
   components: {
     DatePicker: DatePicker,
-    DropDown: DropDown,
+    DropDownVoiture: DropDownVoiture,
+    DropDownCentre: DropDownCentre,
     Bouton: Bouton
   }
 };
