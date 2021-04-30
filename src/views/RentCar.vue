@@ -7,7 +7,7 @@
     <v-form>
       <DatePicker/>
       <CarSelector/>
-      <LocationsPicker/>
+      <FacilitiesPicker/>
       <Bouton/>
     </v-form>
     </v-card>
@@ -17,16 +17,15 @@
 <script>
 import DatePicker from "@/components/DatePicker";
 import CarSelector from "@/components/CarSelector";
-import LocationsPicker from "@/components/LocationsPicker";
+import FacilitiesPicker from "@/components/FacilitiesPicker";
 import Bouton from"@/components/Button";
-
 
 export default {
   components: {
     DatePicker: DatePicker,
     CarSelector: CarSelector,
-    LocationsPicker : LocationsPicker,
-    Bouton: Bouton
+    FacilitiesPicker : FacilitiesPicker,
+    Bouton: Bouton,
   }
 };
 </script>

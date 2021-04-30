@@ -12,7 +12,7 @@ import LeasesHistory from "../components/LeasesHistory"
 
 export default {
   components: {
-   AccountInformation : AccountInformation,
+    AccountInformation : AccountInformation,
     LeasesHistory : LeasesHistory
   }
 };
