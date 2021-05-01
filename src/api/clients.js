@@ -5,5 +5,5 @@ export async function signup(client) {
 }
 
 export async function signin(authentificator){
-  await axios.post('/clients', {authentificator : authentificator} );
+  await axios.post('/clients/signin', {authentificator : authentificator} );
 }
