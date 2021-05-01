@@ -8,41 +8,41 @@
     <h2 class="title">CarBay</h2>
 
     <v-text-field
-      v-model="email"
+      v-model="authetificators.emailAddress"
       label="Adresse mail"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="password"
+      v-model="authetificators.password"
       label="Mot de passe"
       type=password
       required
     ></v-text-field>
 
     <v-btn
-      :disabled="!valid"
       color="primary"
       class="mr-4"
-      type="submit"
-      @click="valider"
+      @click="authentificate(authetificators)"
     >
       Connexion
     </v-btn> 
   </v-form>
 </template>
 <script>
+  import { signin } from "@/api/clients";
   export default {
     data: () => ({
-      valid: false,
-      email: '',
-      password:'',
+      authetificators :{
+        emailAddress: "",
+        password: ""
+      },
     }),
 
     methods: {
-      valider () {
-        this.$refs.form.valider()
-      },
+      authentificate : async function authentificate(authetificators) {
+        await signin(authetificators)
+      }
     },
 
 
