@@ -1,11 +1,5 @@
 <template>
-  <v-form
-    class="sign-up-form"
-    ref="form"
-    v-model="valid"
-    lazy-validation
-
-  >
+  <v-form class="sign-up-form" ref="form" v-model="valid" lazy-validation>
     <h2 class="title">CarBay</h2>
 
     <v-text-field
@@ -46,7 +40,7 @@
     ></v-text-field>
 
     <v-checkbox
-      :rules="[v => !! v || 'Vous devez accepter pour continuer!']"
+      :rules="[(v) => !!v || 'Vous devez accepter pour continuer!']"
       label="En cliquant sur Inscription, vous acceptez nos conditions, notre politique de données et notre politique de cookies."
       required
     ></v-checkbox>
@@ -58,58 +52,57 @@
       @click="createUser(client)"
     >
       Inscription
-    </v-btn> 
+    </v-btn>
   </v-form>
 </template>
+
 <script>
-  import { signup } from "@/api/clients";
-  export default {
-    data: () => ({
-      client :{
+import { signup } from "@/api/clients";
+export default {
+  data: () => ({
+    client: {
       surname: "",
-      name : "",
+      name: "",
       emailAddress: "",
-      password:"",
+      password: "",
       phoneNumber: "",
-      },
-      value: String,
-      valid: false,
-
-      emailRules: [
-        v => !!v || 'Champ obligatoire !',
-        v => /.+@.+\..+/.test(v) || 'E-mail invalide',
-      ],
-
-      passwordRules: [
-        v => !!v || 'Champ obligatoire !',
-        v => (v && v.length >= 8) || 'Votre mot de passe doit contenir au moins 8 caractères!',         
-      ],
-
-      nameRules: [
-        v => !!v || 'Champ obligatoire !',     
-      ],
-    }),
-
-    methods: {
-      createUser : async function createUser(client) {
-        await signup(client)
-      }
     },
+    value: String,
+    valid: false,
 
+    emailRules: [
+      (v) => !!v || "Champ obligatoire !",
+      (v) => /.+@.+\..+/.test(v) || "Adresse mail invalide",
+    ],
 
-  }
+    passwordRules: [
+      (v) => !!v || "Champ obligatoire !",
+      (v) =>
+        (v && v.length >= 8) ||
+        "Votre mot de passe doit contenir au moins 8 caractères!",
+    ],
+
+    nameRules: [(v) => !!v || "Champ obligatoire !"],
+  }),
+
+  methods: {
+    createUser: async function createUser(client) {
+      await signup(client);
+    },
+  },
+};
 </script>
-<style >
-.title{
 
-    width: 10%;
+<style >
+.title {
+  width: 10%;
 }
 
-.sign-up-form{
-    width: 30%;
-    margin: auto;
-    padding: 20px;
-    margin-top: 5%;
-    margin-bottom: 5%;  
+.sign-up-form {
+  width: 30%;
+  margin: auto;
+  padding: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 </style>
