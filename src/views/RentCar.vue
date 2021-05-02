@@ -2,9 +2,9 @@
   <div class="rent-car">
     <v-card class="ma-5" color="secondary">
       <v-form>
-        <DatePicker />
-        <CarSelector />
-        <FacilitiesPicker />
+        <DatePicker v-model="dates" />
+        <CarSelector v-model="selectedCar" />
+        <FacilitiesPicker v-model="facilities" />
         <v-btn depressed elevation="2" large @click="sendNewLeaseInfo()">
           Louer
         </v-btn>
@@ -29,15 +29,15 @@ export default {
   methods: {
     sendNewLeaseInfo: async function () {
       const leaseInfo = {
-        dates: this.dates,
-        startFacility: this.startFacility,
-        endFacility: this.endFacility,
+        startDate: this.dates[0],
+        endDate: this.dates[1],
+        startFacility: this.facilities[0],
+        endFacility: this.facilities[1],
         selectedCar: this.selectedCar,
       };
-      console.log(leaseInfo);
-      console.debug(leaseInfo);
-      console.debug("TEST");
-      await postNewLease();
+
+      //TODO: CHANGE FORM TYPE
+      await postNewLease(leaseInfo);
     },
   },
 };

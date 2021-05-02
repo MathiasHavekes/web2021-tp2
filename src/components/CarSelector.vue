@@ -2,7 +2,7 @@
   <v-container>
     <v-autocomplete
       v-model="selectedCar"
-      :items="carNames"
+      :items="carModels"
       dense
       label="Filled"
     ></v-autocomplete>
@@ -10,15 +10,17 @@
 </template>
 
 <script>
-  import { getCars } from "@/api/cars";
+import { getCars } from "@/api/cars";
 
-  export default {
-    data: () => ({
-      carNames: []
-    }),
+export default {
+  data: () => ({
+    carModels: [],
+    selectedCar: "",
+  }),
 
-    async created() {
-      this.carNames = await getCars() //.map(cars => cars.name);
-    }
-  };
+  async created() {
+    this.carModels = await getCars();
+    this.carModels = this.carModels.map((car) => car.model);
+  },
+};
 </script>
