@@ -7,3 +7,11 @@ export async function signup(client) {
 export async function signin(authentificator){
   await axios.post('/clients/signin', {authentificator : authentificator} );
 }
+
+export async function getcurrentinformation(emailAddress) {
+  return (await axios.get('/clients/account'),emailAddress).data;
+}
+
+export async function savenewinformation(information){
+  await axios.post('/clients/account/save', {information : information} );
+}

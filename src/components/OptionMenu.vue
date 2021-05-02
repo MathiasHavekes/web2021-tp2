@@ -7,7 +7,7 @@
     </template>
 
     <v-list>
-      <v-list-item-group v-model="item">
+      <v-list-item-group>
         <v-list-item>
           <v-switch
           v-model="$vuetify.theme.dark"

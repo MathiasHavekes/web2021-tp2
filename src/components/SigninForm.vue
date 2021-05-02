@@ -2,7 +2,6 @@
   <v-form
     class="log-in"
     ref="form"
-    v-model="valid"
     lazy-validation
   >
     <h2 class="title">CarBay</h2>

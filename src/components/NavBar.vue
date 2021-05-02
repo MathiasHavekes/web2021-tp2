@@ -17,17 +17,17 @@
       <v-list>
         <v-list-item-group>
           <v-list-item
-            v-for="item in links"
-            :key="item.text"
+            v-for="link in links"
+            :key="link.text"
             router
-            :to="item.route"
+            :to="link.route"
           >
             <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
+              <v-icon v-text="link.icon"></v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
+              <v-list-item-title v-text="link.text"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -46,10 +46,12 @@ export default {
 
   data() {
     return {
-      
       drawer: false,
       links: [
-        { text: "Accueil", icon: "mdi-home", route: "/" },
+        { text: "Accueil",
+          icon: "mdi-home", 
+          route: "/"
+        },
         {
           text: "Mon compte",
           icon: "mdi-account-circle",

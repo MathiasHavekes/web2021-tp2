@@ -21,7 +21,8 @@
       :rules="emailRules"
       label="Adresse mail"
       required
-    ></v-text-field>
+    >
+    </v-text-field>
 
     <v-text-field
       v-model="client.password"
@@ -58,6 +59,7 @@
 
 <script>
 import { signup } from "@/api/clients";
+
 export default {
   data: () => ({
     client: {
