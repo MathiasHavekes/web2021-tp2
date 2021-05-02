@@ -38,7 +38,7 @@
     <v-text-field
       v-model="client.password"
       :rules="passwordRules"
-      label="Mot de passe"
+      label="password"
       :append-icon="value ? 'Aa' : '•'"
       @click:append="() => (value = !value)"
       :type="value ? 'password' : 'text'"
@@ -49,22 +49,24 @@
       :disabled="!valid"
       color="primary"
       class="mr-4"
-      @click="valider(client)"
+      @click="valider(information)"
     >
       Sauveguarder
     </v-btn> 
   </v-form>
 </template>
 <script>
+import { getcurrentinformation } from "@/api/clients";
   export default {
     data: () => ({
       client :{
-      prénom: "",
-      nom : "",
-      email: "",
+      surname: "",
+      name : "",
+      emailAddress: "",
       password:"",
-      téléphone: '',
+      phoneNumber: "",
       },
+      information: Object,
       value: String,
       valid: true,
 
@@ -79,10 +81,13 @@
     }),
 
     methods: {
-      valider (client) {
-        console.log(client)
-        this.$refs.form.valider()
-      },
+      valider (information) {
+        console.log(information);
+    },
+    
+    async created() {
+      this.information = await getcurrentinformation("Mathias.Havekes@gmail.Com");
+      }
     },
   }
 </script>
