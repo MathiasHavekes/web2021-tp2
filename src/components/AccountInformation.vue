@@ -1,9 +1,10 @@
 <template>
-  <v-card>
+  <v-card class="container">
     <v-form class="informationsForm" ref="form" v-model="valid" lazy-validation>
       <h2 class="title">Votre compte</h2>
 
     <v-text-field
+      color="antiBackground"
       v-model="information.surname"
       label="Prénom"
       :rules="nameRules"
@@ -13,6 +14,7 @@
     <v-text-field
       v-model="information.name"
       :rules="nameRules"
+      color="antiBackground"
       label="Nom"
       required
     ></v-text-field>
@@ -20,6 +22,7 @@
     <v-text-field
       v-model="information.emailAddress"
       label="Adresse mail"
+      color="antiBackground"
       required
       readonly
     ></v-text-field>
@@ -27,6 +30,7 @@
     <v-text-field
       v-model="information.phoneNumber"
       label="Numéro de téléphone"
+      color="antiBackground"
       required
       readonly
     ></v-text-field>
@@ -34,6 +38,7 @@
     <v-text-field
       v-model="information.password"
       :rules="passwordRules"
+      color="antiBackground"
       label="password"
       :append-icon="value ? 'Aa' : '•'"
       @click:append="() => (value = !value)"
@@ -44,7 +49,7 @@
       <v-btn
         :disabled="!valid"
         color="primary"
-        class="mr-4"
+        class="btn-sauvegarde"
         @click="valider(information)"
       >
         Sauvegarder
@@ -56,13 +61,6 @@
 import { getUserInformation } from "@/api/clients";
 export default {
   data: () => ({
-    client: {
-      surname: "",
-      name: "",
-      emailAddress: "",
-      password: "",
-      phoneNumber: "",
-    },
     information: Object,
     value: String,
     valid: true,
@@ -83,7 +81,7 @@ export default {
     },
 
     async created() {
-      this.information = await getUserInformation("Mathias.Havekes@gmail.Com");
+      this.information = await getUserInformation("608f5641fdb52a393f7dac84");
     },
   },
 };
@@ -95,10 +93,20 @@ export default {
 }
 
 .informationsForm {
-  width: 30%;
+  width: 70%;
   margin: auto;
   padding: 20px;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+.container{
+  margin-top: 5%;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.btn-sauvegarde{
+    margin-left: 30%;
 }
 </style>

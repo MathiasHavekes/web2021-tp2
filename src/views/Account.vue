@@ -1,9 +1,9 @@
 <template>
-  <v-container>
+  <div>
     <AccountInformation />
-    <v-spacer></v-spacer>
+    <br>
     <LeasesHistory />
-  </v-container>
+  </div>
 </template>
 
 <script>

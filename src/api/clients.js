@@ -9,7 +9,7 @@ export async function signin(credentials){
 }
 
 export async function getUserInformation(userId) {
-  return (await axios.get('/clients/account'), {userId : userId}).data;
+  return (await axios.get('/clients/compte'), {_id : userId}).data;
 }
 
 export async function savenewinformation(information){

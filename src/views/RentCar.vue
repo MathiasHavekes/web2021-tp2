@@ -1,13 +1,14 @@
 <template>
-  <div class="d-flex flex-row justify-center py-16">
-    <v-card class="d-flex flex-row justify-center" color="secondary">
+  <v-card class="container" color="secondary">
+    <div class="leaseform">
       <v-form>
         <DatePicker v-model="dates" />
         <CarSelector v-model="selectedCar" />
-        <GoogleMap />
+        <GoogleMap class="Googlemaps"/>
         <FacilitiesPicker v-model="facilities" />
         <v-btn
           color="background"
+          class="btn-submit"
           depressed
           elevation="2"
           large
@@ -16,8 +17,8 @@
           Louer
         </v-btn>
       </v-form>
-    </v-card>
-  </div>
+    </div>
+  </v-card>
 </template>
 
 <script>
@@ -51,4 +52,26 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+.container{
+  margin-top: 5%;
+  width: 60%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+}
+
+.leaseform{
+  width: 100%;
+}
+
+.btn-submit{
+  margin-left: 42%;
+  width: 15%;
+}
+
+.Googlemaps{
+  width: 100%;
+}
+</style>
 

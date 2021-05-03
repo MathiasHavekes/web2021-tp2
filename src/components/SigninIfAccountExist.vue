@@ -2,7 +2,7 @@
   <v-card class="container">
     <div class="signinifaccountexist">
     <h2 class="title">
-        Vous avez deja un compte?
+        Déjà un compte ?
     </h2>
     
     <br>

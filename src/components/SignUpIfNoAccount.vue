@@ -2,7 +2,7 @@
   <v-card class="container">
     <div class="signupifnoaccount">
     <h2 class="title">
-        Vous n'avez pas de compte?
+        Pas de compte ?
     </h2>
     
     <br>
