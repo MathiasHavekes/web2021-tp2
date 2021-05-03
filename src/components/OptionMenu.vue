@@ -6,14 +6,15 @@
       </v-btn>
     </template>
 
-    <v-list>
+    <v-list color="background">
       <v-list-item-group>
         <v-list-item>
           <v-switch
-          v-model="$vuetify.theme.dark"
-          append-icon="mdi-brightness-6"
-          inset
-          persistent-hint
+            v-model="$vuetify.theme.dark"
+            append-icon="mdi-brightness-6"
+            inset
+            persistent-hint
+            color="antiPrimary"
           ></v-switch>
         </v-list-item>
       </v-list-item-group>
@@ -26,12 +27,6 @@ export default {
   data() {
     return {
       drawer: false,
-			links: [
-        { text: "Accueil", icon: "mdi-home", route: "/" },
-        { text: "Mon compte", icon: "mdi-account-circle", route: "/user/account" },
-				{ text: "Louer une voiture", icon: "mdi-car-electric", route: "/rent/car" },
-				{ text: "Trouver un vol", icon: "mdi-airplane", route: "/find/flight" },
-      ]
     };
   },
 };

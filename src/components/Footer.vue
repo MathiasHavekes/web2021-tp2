@@ -10,11 +10,12 @@
       </v-card-text>
 
       <v-card-text>
-        CarBay, location de voiture depuis 2010. Afin de satisfaire tous vos besoins en terme de voyage 
-        nous vous proposons les meilleurs voitures éléctriques du marché afin que vous puissiez profiter
-        de vos destinations favorites tout en réspectant l'environnement. Pour plus de détails, pour de l'aide
-        ou tout simplement pour partager vos voyages avec notre équipes, contactait nous via nos differents réseaux sociaux.
-
+        CarBay, location de voiture depuis 2010. Afin de satisfaire tous vos
+        besoins en terme de voyage nous vous proposons les meilleurs voitures
+        éléctriques du marché afin que vous puissiez profiter de vos
+        destinations favorites tout en réspectant l'environnement. Pour plus de
+        détails, pour de l'aide ou tout simplement pour partager vos voyages
+        avec notre équipes, contactait nous via nos differents réseaux sociaux.
       </v-card-text>
 
       <v-divider></v-divider>
@@ -27,19 +28,19 @@
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      icons: [
-        {id: 1, image: 'mdi-facebook', route: "https://www.Facebook.com" },
-        {id: 2, image: 'mdi-twitter', route: "https://www.Twitter.com" },
-        {id: 3, image: 'mdi-linkedin', route: "https://www.Linkedin.com" },
-        {id: 4, image: 'mdi-instagram', route: "https://www.Instagram.com" }
-      ],
-    }),
-      methods: {
-      redirect: function (link, target = "_blank") {
+export default {
+  data: () => ({
+    icons: [
+      { id: 1, image: "mdi-facebook", route: "https://www.Facebook.com" },
+      { id: 2, image: "mdi-twitter", route: "https://www.Twitter.com" },
+      { id: 3, image: "mdi-linkedin", route: "https://www.Linkedin.com" },
+      { id: 4, image: "mdi-instagram", route: "https://www.Instagram.com" },
+    ],
+  }),
+  methods: {
+    redirect: function (link, target = "_blank") {
       window.open(link, target);
-      },
     },
-  }
+  },
+};
 </script>

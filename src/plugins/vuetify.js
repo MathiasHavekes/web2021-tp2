@@ -10,12 +10,14 @@ const vuetify = new Vuetify({
       light: {
         primary: colors.blueGrey.darken2,
         secondary: colors.blueGrey.lighten4,
-        background: colors.blueGrey.lighten5
+        background: colors.blueGrey.lighten5,
+        antiBackground: colors.blueGrey.darken4,
       },
       dark: {
         primary: colors.blueGrey.darken3,
         secondary: colors.blueGrey.darken3,
-        background: colors.blueGrey.darken4
+        background: colors.blueGrey.darken4,
+        antiBackground: colors.blueGrey.lighten5,
       },
     },
   },

@@ -1,28 +1,29 @@
 <template>
-  <v-row>
-    <v-col cols="12" sm="6">
-      <v-date-picker
-        v-model="dates"
-        range
-        :allowed-dates="getAllowedDates"
-        header-color="primary"
-        light
-      ></v-date-picker>
-    </v-col>
-    <v-col cols="12" sm="6">
+  <v-container class="d-flex flex-row justify-center pa-16">
+    <v-date-picker
+      v-model="dates"
+      range
+      :allowed-dates="getAllowedDates"
+      header-color="primary"
+      light
+    ></v-date-picker>
+
+    <v-container class="d-flex flex-column pl-16">
       <v-text-field
         v-model="dates[0]"
-        label="Date range"
+        label="Date de debut"
         prepend-icon="mdi-calendar"
+        color="antiBackground"
       ></v-text-field>
 
       <v-text-field
         v-model="dates[1]"
-        label="Date range"
+        label="Date de fin"
         prepend-icon="mdi-calendar"
+        color="antiBackground"
       ></v-text-field>
-    </v-col>
-  </v-row>
+    </v-container>
+  </v-container>
 </template>
 
 <script>

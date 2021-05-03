@@ -1,15 +1,15 @@
 import axios from 'axios';
 
 export async function signup(client) {
-  await axios.post('/clients/signup', {user : client} );
+  await axios.post('/clients/signup', {user : client});
 }
 
 export async function signin(credentials){
-  await axios.post('/clients/signin', {credentials: credentials} ).then(res => console.log(res));
+  await axios.post('/clients/signin', {credentials: credentials}).then(res => console.log(res));
 }
 
-export async function getcurrentinformation(emailAddress) {
-  return (await axios.get('/clients/account'),emailAddress).data;
+export async function getUserInformation(userId) {
+  return (await axios.get('/clients/account'), {userId : userId}).data;
 }
 
 export async function savenewinformation(information){

@@ -1,10 +1,11 @@
 <template>
-  <v-container>
+  <v-container class="pa-16">
     <v-autocomplete
       v-model="selectedCar"
       :items="carModels"
       dense
-      label="Filled"
+      label="Choisir une voiture"
+      color="antiBackground"
     ></v-autocomplete>
   </v-container>
 </template>
