@@ -9,7 +9,7 @@ export async function signin(authentificator){
 }
 
 export async function getcurrentinformation(emailAddress) {
-  return (await axios.get('/clients/account'),emailAddress).data;
+  return (await axios.get('/clients'),{ emailAddress : emailAddress}).data;
 }
 
 export async function savenewinformation(information){

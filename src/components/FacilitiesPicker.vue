@@ -25,7 +25,7 @@
     }),
 
     async created() {
-      this.facilitiesNames = await getFacilities() //.map(facilities => facilities.title);
+      this.facilitiesNames = await getFacilities();//.map(facilities => facilities.title);
     }
   };
 </script>

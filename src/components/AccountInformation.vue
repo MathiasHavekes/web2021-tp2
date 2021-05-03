@@ -8,35 +8,35 @@
     <h2 class="title">Votre compte</h2>
 
     <v-text-field
-      v-model="client.prénom"
+      v-model="information.surname"
       label="Prénom"
       :rules="nameRules"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="client.nom"
+      v-model="information.name"
       :rules="nameRules"
       label="Nom"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="client.email"
+      v-model="information.emailAddress"
       label="Adresse mail"
       required
       readonly
     ></v-text-field>
 
     <v-text-field
-      v-model="client.téléphone"
+      v-model="information.phoneNumber"
       label="Numéro de téléphone"
       required
       readonly
     ></v-text-field>
 
     <v-text-field
-      v-model="client.password"
+      v-model="information.password"
       :rules="passwordRules"
       label="password"
       :append-icon="value ? 'Aa' : '•'"
@@ -59,14 +59,7 @@
 import { getcurrentinformation } from "@/api/clients";
   export default {
     data: () => ({
-      client :{
-      surname: "",
-      name : "",
-      emailAddress: "",
-      password:"",
-      phoneNumber: "",
-      },
-      information: Object,
+      information: {},
       value: String,
       valid: true,
 
@@ -86,7 +79,7 @@ import { getcurrentinformation } from "@/api/clients";
     },
     
     async created() {
-      this.information = await getcurrentinformation("Mathias.Havekes@gmail.Com");
+      this.information = await getcurrentinformation("mh@exemple.com");
       }
     },
   }
