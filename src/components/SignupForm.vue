@@ -1,60 +1,62 @@
 <template>
-  <v-form class="sign-up-form" ref="form" v-model="valid" lazy-validation>
-    <h2 class="title">CarBay</h2>
+  <v-card class="container">
+    <v-form class="sign-up-form" ref="form" v-model="valid" lazy-validation>
+      <h2 class="title">CarBay</h2>
 
-    <v-text-field
-      v-model="client.surname"
-      label="Prénom"
-      :rules="nameRules"
-      required
-    ></v-text-field>
+      <v-text-field
+        v-model="client.surname"
+        label="Prénom"
+        :rules="nameRules"
+        required
+      ></v-text-field>
 
-    <v-text-field
-      v-model="client.name"
-      :rules="nameRules"
-      label="Nom"
-      required
-    ></v-text-field>
+      <v-text-field
+        v-model="client.name"
+        :rules="nameRules"
+        label="Nom"
+        required
+      ></v-text-field>
 
-    <v-text-field
-      v-model="client.emailAddress"
-      :rules="emailRules"
-      label="Adresse mail"
-      required
-    >
-    </v-text-field>
+      <v-text-field
+        v-model="client.emailAddress"
+        :rules="emailRules"
+        label="Adresse mail"
+        required
+      >
+      </v-text-field>
 
-    <v-text-field
-      v-model="client.password"
-      :rules="passwordRules"
-      label="Mot de passe"
-      :append-icon="value ? 'Aa' : '•'"
-      @click:append="() => (value = !value)"
-      :type="value ? 'password' : 'text'"
-      required
-    ></v-text-field>
+      <v-text-field
+        v-model="client.password"
+        :rules="passwordRules"
+        label="Mot de passe"
+        :append-icon="value ? 'Aa' : '•'"
+        @click:append="() => (value = !value)"
+        :type="value ? 'password' : 'text'"
+        required
+      ></v-text-field>
 
-    <v-text-field
-      v-model="client.phoneNumber"
-      label="Numéro de téléphone"
-      required
-    ></v-text-field>
+      <v-text-field
+        v-model="client.phoneNumber"
+        label="Numéro de téléphone"
+        required
+      ></v-text-field>
 
-    <v-checkbox
-      :rules="[(v) => !!v || 'Vous devez accepter pour continuer!']"
-      label="En cliquant sur Inscription, vous acceptez nos conditions, notre politique de données et notre politique de cookies."
-      required
-    ></v-checkbox>
+      <v-checkbox
+        :rules="[(v) => !!v || 'Vous devez accepter pour continuer!']"
+        label="En cliquant sur Inscription, vous acceptez nos conditions, notre politique de données et notre politique de cookies."
+        required
+      ></v-checkbox>
 
-    <v-btn
-      :disabled="!valid"
-      color="primary"
-      class="mr-4"
-      @click="createUser(client)"
-    >
-      Inscription
-    </v-btn>
-  </v-form>
+      <v-btn
+        :disabled="!valid"
+        color="primary"
+        class="btn-connexion"
+        @click="createUser(client)"
+      >
+        Inscription
+      </v-btn>
+    </v-form>
+  </v-card>
 </template>
 
 <script>
@@ -96,12 +98,22 @@ export default {
 </script>
 
 <style >
+
+.btn-connexion{
+  margin-left: 30%;
+}
+
+.container{
+  margin-top: 5%;
+  width: 30%;
+  border-radius: 10px;
+}
 .title {
   width: 10%;
 }
 
 .sign-up-form {
-  width: 30%;
+  width: 70%;
   margin: auto;
   padding: 20px;
   margin-top: 5%;

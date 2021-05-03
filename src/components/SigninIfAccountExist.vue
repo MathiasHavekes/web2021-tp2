@@ -1,4 +1,5 @@
 <template>
+  <v-card class="container">
     <div class="signinifaccountexist">
     <h2 class="title">
         Vous avez deja un compte?
@@ -14,6 +15,7 @@
       Connetez-vous
     </v-btn> 
     </div>
+  </v-card>
 </template>
 
 <script>
@@ -21,13 +23,13 @@
 </script>
 
 <style scoped>
+.container{
+  width: 30%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
 .signinifaccountexist{
     margin-left: 35%;
-    padding: 20px;
-    margin-top: 5%;
-    margin-bottom: 5%;  
-    clear: both;
-    overflow: auto;
 }
 .title{
     margin: 0%;

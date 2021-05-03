@@ -1,19 +1,19 @@
 <template>
-<div>
-  <SigninForm />
-  <SignUpIfNoAccount />
-</div>
+  <div>
+    <SigninForm />
+    <SignUpIfNoAccount />
+  </div>
 </template>
 
 <script>
-import SigninForm from "../components/SigninForm"
-import SignUpIfNoAccount from "../components/SignUpIfNoAccount"
+import SigninForm from "@/components/SigninForm";
+import SignUpIfNoAccount from "@/components/SignUpIfNoAccount";
 
 export default {
   components: {
-    SigninForm : SigninForm,
-    SignUpIfNoAccount : SignUpIfNoAccount
-  }
+    SigninForm: SigninForm,
+    SignUpIfNoAccount: SignUpIfNoAccount,
+  },
 };
 </script>
 

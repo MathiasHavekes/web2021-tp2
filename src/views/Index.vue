@@ -2,9 +2,9 @@
   <div class="index">
     <DestinationCarousel />
 
-    <v-container class="ma-5">
-      <h1>Des dixaines de voitures disponibles</h1>
-      <h2>
+    <v-container class="ma-16">
+      <h1 class="text-center">Des dixaines de voitures disponibles</h1>
+      <h2 class="text-center">
         Sauvez la planete en optant pour des modeles electriques ou hybrides !
       </h2>
     </v-container>
