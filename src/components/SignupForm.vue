@@ -1,5 +1,5 @@
 <template>
-  <v-card class="container">
+  <v-card class="container" color="secondary">
     <v-form class="sign-up-form" ref="form" v-model="valid" lazy-validation>
       <h2 class="title">CarBay</h2>
 
@@ -98,12 +98,11 @@ export default {
 </script>
 
 <style >
-
-.btn-connexion{
+.btn-connexion {
   margin-left: 30%;
 }
 
-.container{
+.container {
   margin-top: 5%;
   width: 30%;
   border-radius: 10px;
