@@ -1,5 +1,5 @@
 <template>
-  <v-card class="container">
+  <v-card class="container" color="secondary">
     <v-form
       class="log-in"
       ref="form"
@@ -23,7 +23,9 @@
         required
       ></v-text-field>
 
-      <v-btn type="submit" color="primary" class="btn-connexion"> Connexion </v-btn>
+      <v-btn type="submit" color="primary" class="btn-connexion">
+        Connexion
+      </v-btn>
     </v-form>
   </v-card>
 </template>
@@ -45,11 +47,14 @@ export default {
 };
 </script>
 <style scoped>
-
-.container{
+.containers {
   margin-top: 5%;
   width: 30%;
+<<<<<<< HEAD
   border-radius: 15px;  
+=======
+  border-radius: 10px;
+>>>>>>> 675a75899dd9c041198b91107bce999220d85f8e
 }
 
 .log-in {
@@ -60,7 +65,7 @@ export default {
   margin-bottom: 5%;
 }
 
-.btn-connexion{
+.btn-connexion {
   margin-left: 30%;
 }
 </style>
