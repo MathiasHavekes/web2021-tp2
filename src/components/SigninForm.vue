@@ -12,12 +12,14 @@
         v-model="credentials.emailAddress"
         label="Adresse mail"
         required
+        color="antiBackground"
       ></v-text-field>
 
       <v-text-field
         v-model="credentials.password"
         label="Mot de passe"
         type="password"
+        color="antiBackground"
         required
       ></v-text-field>
 
@@ -52,7 +54,11 @@ export default {
 .containers {
   margin-top: 5%;
   width: 30%;
+<<<<<<< HEAD
+  border-radius: 15px;  
+=======
   border-radius: 10px;
+>>>>>>> 675a75899dd9c041198b91107bce999220d85f8e
 }
 
 .log-in {

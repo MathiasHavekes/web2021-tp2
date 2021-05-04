@@ -1,7 +1,15 @@
 <template>
   <v-card class="container" color="secondary">
     <div class="signinifaccountexist">
+<<<<<<< HEAD
+    <h2 class="title">
+        Déjà un compte ?
+    </h2>
+    
+    <br>
+=======
       <h2 class="title">Vous avez deja un compte?</h2>
+>>>>>>> 675a75899dd9c041198b91107bce999220d85f8e
 
       <br />
 

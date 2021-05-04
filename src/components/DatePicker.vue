@@ -1,5 +1,5 @@
 <template>
-  <v-container class="d-flex flex-row justify-center pa-16">
+  <v-container class="d-flex flex-row justify-center">
     <v-date-picker
       v-model="dates"
       range

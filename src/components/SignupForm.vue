@@ -7,6 +7,7 @@
         v-model="client.surname"
         label="Prénom"
         :rules="nameRules"
+        color="antiBackground"
         required
       ></v-text-field>
 
@@ -14,6 +15,7 @@
         v-model="client.name"
         :rules="nameRules"
         label="Nom"
+        color="antiBackground"
         required
       ></v-text-field>
 
@@ -21,6 +23,7 @@
         v-model="client.emailAddress"
         :rules="emailRules"
         label="Adresse mail"
+        color="antiBackground"
         required
       >
       </v-text-field>
@@ -29,6 +32,7 @@
         v-model="client.password"
         :rules="passwordRules"
         label="Mot de passe"
+        color="antiBackground"
         :append-icon="value ? 'Aa' : '•'"
         @click:append="() => (value = !value)"
         :type="value ? 'password' : 'text'"
@@ -38,6 +42,7 @@
       <v-text-field
         v-model="client.phoneNumber"
         label="Numéro de téléphone"
+        color="antiBackground"
         required
       ></v-text-field>
 
@@ -105,7 +110,7 @@ export default {
 .container {
   margin-top: 5%;
   width: 30%;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 .title {
   width: 10%;

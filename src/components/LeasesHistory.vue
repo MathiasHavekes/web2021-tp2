@@ -1,16 +1,15 @@
 <template>
-  <div class="Conteneur">
-    <v-container fluid>
-      <h3 class="title">Historique des locations</h3>
-      <v-row>
-        <div v-for="location in locations" :key="location.id">
-          <v-col>
-            <LeaseCard :location="location" />
-          </v-col>
-        </div>
-      </v-row>
-    </v-container>
-  </div>
+  <v-card class="container">
+    <h3 class="title">Historique des locations</h3>
+    <br />
+    <v-row>
+      <div v-for="location in locations" :key="location.id">
+        <v-col>
+          <LeaseCard class="lease-card" :location="location" />
+        </v-col>
+      </div>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
@@ -26,7 +25,7 @@ export default {
       locations: [
         {
           id: "#36",
-          src: "../assets/images_cars/tesla_model_s.jpg",
+          src: "../assets/images_bd/tesla_model_s.jpg",
           durée: "14 jours",
           price: 980,
           dateDebut: "7-04-2021",
@@ -35,7 +34,7 @@ export default {
         },
         {
           id: "#2895",
-          src: "../assets/images_cars/tesla_model_s.jpg",
+          src: "../assets/images_bd/tesla_model_s.jpg",
           durée: "21 jours",
           price: 1470,
           dateDebut: "7-04-2021",
@@ -44,7 +43,7 @@ export default {
         },
         {
           id: "#3",
-          src: "../assets/images_cars/tesla_model_s.jpg",
+          src: "../assets/images_bd/tesla_model_s.jpg",
           durée: "18 jours",
           price: 1200,
           dateDebut: "7-04-2021",
@@ -53,7 +52,7 @@ export default {
         },
         {
           id: "#36",
-          src: "../assets/images_cars/tesla_model_s.jpg",
+          src: "../assets/images_bd/tesla_model_s.jpg",
           durée: "14 jours",
           price: 980,
           dateDebut: "7-04-2021",
@@ -62,7 +61,7 @@ export default {
         },
         {
           id: "#36",
-          src: "../assets/images_cars/tesla_model_s.jpg",
+          src: "../assets/images_bd/tesla_model_s.jpg",
           durée: "14 jours",
           price: 980,
           dateDebut: "7-04-2021",
@@ -78,7 +77,13 @@ export default {
 .title {
   margin-left: 43%;
 }
-.Conteneur {
-  width: 100%;
+
+.container {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.lease-card {
+  margin: 2px;
 }
 </style>
