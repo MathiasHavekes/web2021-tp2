@@ -3,7 +3,7 @@
     <v-carousel-item
       v-for="(image, i) in images"
       :key="i"
-      :src="image.src"
+      :src="requireImages(image.src)"
       reverse-transition="fade-transition"
       transition="fade-transition"
     >
@@ -20,19 +20,25 @@ export default {
     return {
       images: [
         {
-          src: require("../assets/images/gaspesie.jpg"),
+          src: "gaspesie.jpg",
         },
         {
-          src: require("../assets/images/quebec.jpg"),
+          src: "quebec.jpg",
         },
         {
-          src: require("../assets/images/mont_tramblant.jpg"),
+          src: "mont_tramblant.jpg",
         },
         {
-          src: require("../assets/images/hiver_quebec.jpg"),
+          src: "hiver_quebec.jpg",
         },
       ],
     };
+  },
+
+  methods: {
+    requireImages: function (src) {
+      return require("../assets/images/" + src);
+    },
   },
 };
 </script>

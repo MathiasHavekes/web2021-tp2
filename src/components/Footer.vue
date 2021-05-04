@@ -15,7 +15,7 @@
         éléctriques du marché afin que vous puissiez profiter de vos
         destinations favorites tout en réspectant l'environnement. Pour plus de
         détails, pour de l'aide ou tout simplement pour partager vos voyages
-        avec notre équipes, contactait nous via nos differents réseaux sociaux.
+        avec notre équipes, contactez nous via nos differents réseaux sociaux.
       </v-card-text>
 
       <v-divider></v-divider>

@@ -35,15 +35,19 @@ export default {
       emailAddress: "",
       password: "",
     },
+
+    connected: "",
   }),
 
   methods: {
     authentificate: async function authentificate(credentials) {
-      await signin(credentials);
+      this.connected = await signin(credentials);
+      localStorage.setItem("connected", this.connected.data.connected);
     },
   },
 };
 </script>
+
 <style scoped>
 .containers {
   margin-top: 5%;

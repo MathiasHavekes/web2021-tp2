@@ -10,6 +10,8 @@ Vue.config.productionTip = false;
 axios.defaults.withCredentials = true;
 Vue.use(VueAxios, axios);
 
+Vue.prototype.$isConnected = false;
+
 Vue.use(VueGoogleMap, {
   load: {
     key: 'AIzaSyAQVDCdgEViZOxhoRuLm99Bw-vsmu3isrU',

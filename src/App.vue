@@ -1,10 +1,10 @@
 <template>
-  <v-app :style="{background: $vuetify.theme.themes[theme].background}">
-    <NavBar/>
+  <v-app :style="{ background: $vuetify.theme.themes[theme].background }">
+    <NavBar />
     <v-main>
       <router-view></router-view>
     </v-main>
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 
@@ -13,18 +13,18 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     NavBar: NavBar,
-    Footer: Footer
+    Footer: Footer,
   },
 
-  computed:{
-    theme(){
-      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
-    }
-  }
+  computed: {
+    theme() {
+      return this.$vuetify.theme.dark ? "dark" : "light";
+    },
+  },
 };
 </script>
 
