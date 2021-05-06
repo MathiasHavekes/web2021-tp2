@@ -39,7 +39,6 @@ export default {
     authentificate: async function (credentials) {
       let connected = await signin(credentials);
 
-      console.log(connected);
       if (connected.isConnected) {
         localStorage.setItem("connected", true);
         this.$router.push("/");

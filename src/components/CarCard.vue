@@ -48,9 +48,5 @@ export default {
       return require("../assets/images_cars/" + src);
     },
   },
-
-  mounted() {
-    console.log(this.car);
-  },
 };
 </script>

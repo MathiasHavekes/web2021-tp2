@@ -13,7 +13,6 @@
 export default {
   computed: {
     alert() {
-      console.log(this.$store.getters.getCurrentAlert);
       return this.$store.getters.getCurrentAlert;
     },
   },
