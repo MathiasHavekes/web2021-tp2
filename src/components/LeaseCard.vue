@@ -3,12 +3,12 @@
     <v-img src="../assets/images_cars/tesla_model_s.jpg" height="200px"></v-img>
 
     <v-card-title>
-      Numéro de la location :
-      {{ location.id }}
+      Modèle de voiture :
+      {{ lease.carModel }}
     </v-card-title>
 
     <v-card-actions>
-      <v-btn text> + Infos </v-btn>
+      <v-btn text> + Details </v-btn>
 
       <v-spacer />
 
@@ -21,25 +21,27 @@
       <div v-show="show">
         <v-divider></v-divider>
 
-        <v-card-text> Date de début : {{ location.dateDebut }} </v-card-text>
+        <v-card-text> Date de début : {{ lease.startDate }} </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-text> Date de fin : {{ location.dateFin }} </v-card-text>
+        <v-card-text> Date de fin : {{ lease.endDate }} </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-text> Durée : {{ location.durée }} </v-card-text>
+        <v-card-text> Durée : {{ lease.period }} jours </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-text> Prix total : {{ location.price }}$ </v-card-text>
+        <v-card-text> Prix total : {{ lease.price }}$ </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-text>
-          Centre d'arrivée : {{ location.centreDepot }}
-        </v-card-text>
+        <v-card-text> Centre de départ : {{ lease.Facility }} </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text> Adresse du centre : {{ lease.AddressFacility }} </v-card-text>
       </div>
     </v-expand-transition>
   </v-card>
@@ -54,7 +56,7 @@ export default {
   },
 
   props: {
-    location: Object,
+    lease: Object,
   },
 };
 </script>
