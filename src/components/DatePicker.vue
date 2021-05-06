@@ -31,10 +31,32 @@ const currentDate = new Date();
 const allowedDates = [currentDate, "2025-12-20"];
 
 export default {
+  props: {
+    value: {
+      type: Array,
+      default: () => ["", ""],
+    },
+  },
+
   data() {
     return {
-      dates: ["", ""],
+      dates: this.value,
     };
+  },
+
+  watch: {
+    value: {
+      deep: true,
+      handler() {
+        this.dates = this.value;
+      },
+    },
+    dates: {
+      deep: true,
+      handler() {
+        this.$emit("input", this.dates);
+      },
+    },
   },
 
   computed: {

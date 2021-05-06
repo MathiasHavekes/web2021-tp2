@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-container>
     <SigninForm />
     <SignUpIfNoAccount />
-  </div>
+  </v-container>
 </template>
 
 <script>

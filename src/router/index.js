@@ -31,10 +31,6 @@ const routes = [
     }
   },
   {
-    path: "/user/signout",
-    name: "Signout",
-  },
-  {
     path: "/user/signin",
     name: "Signin",
     component: Signin,
@@ -75,6 +71,10 @@ router.beforeEach((to, from, next) => {
     } else {
       next()
     }
+  } else if(to.matched.some(record => record.meta.requiresNanAuth)) {
+    next({
+      path: "/"
+    })
   } else {
     next()
   }

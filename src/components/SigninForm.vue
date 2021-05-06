@@ -1,12 +1,7 @@
 <template>
   <v-card class="container" color="secondary">
-    <v-form
-      class="log-in"
-      ref="form"
-      lazy-validation
-      @submit.prevent="authentificate(credentials)"
-    >
-      <h2 class="title">CarBay</h2>
+    <v-form lazy-validation @submit.prevent="authentificate(credentials)">
+      <h2 class="title">Se connecter</h2>
 
       <v-text-field
         v-model="credentials.emailAddress"
@@ -23,7 +18,7 @@
         required
       ></v-text-field>
 
-      <v-btn type="submit" color="primary" class="btn-connexion">
+      <v-btn type="submit" color="background" class="btn-connexion">
         Connexion
       </v-btn>
     </v-form>
@@ -31,45 +26,37 @@
 </template>
 <script>
 import { signin } from "@/api/clients";
+
 export default {
   data: () => ({
     credentials: {
       emailAddress: "",
       password: "",
     },
-
-    connected: "",
   }),
 
   methods: {
-    authentificate: async function authentificate(credentials) {
-      this.connected = await signin(credentials);
-      localStorage.setItem("connected", this.connected.data.connected);
+    authentificate: async function (credentials) {
+      let connected = await signin(credentials);
+
+      console.log(connected);
+      if (connected.isConnected) {
+        localStorage.setItem("connected", true);
+        this.$router.push("/");
+        this.$store.commit("setAlert", {
+          type: "success",
+          message:
+            "Bonjour " + connected.userFullName + " ! Bienvenue sur CarBay",
+          isVisible: true,
+        });
+      } else {
+        this.$store.commit("setAlert", {
+          type: "error",
+          message: "Mauvais identifiants",
+          isVisible: true,
+        });
+      }
     },
   },
 };
 </script>
-
-<style scoped>
-.containers {
-  margin-top: 5%;
-  width: 30%;
-<<<<<<< HEAD
-  border-radius: 15px;  
-=======
-  border-radius: 10px;
->>>>>>> 675a75899dd9c041198b91107bce999220d85f8e
-}
-
-.log-in {
-  width: 70%;
-  margin: auto;
-  padding: 20px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.btn-connexion {
-  margin-left: 30%;
-}
-</style>

@@ -9,11 +9,9 @@
     >
       <GmapMarker
         :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        :clickable="true"
-        :draggable="false"
-        @click="center = m.position"
+        v-for="(f, index) in allFacilities"
+        :position="{ lat: parseFloat(f.lat), lng: parseFloat(f.lng) }"
+        :clickable="false"
       />
     </GmapMap>
   </v-container>
@@ -22,6 +20,9 @@
 <script>
 export default {
   name: "GoogleMap",
+  props: {
+    allFacilities: Array,
+  },
   data: () => ({
     mapStyle: {
       styles: [
@@ -108,6 +109,3 @@ export default {
   }),
 };
 </script>
-
-<style>
-</style>

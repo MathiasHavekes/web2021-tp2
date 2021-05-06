@@ -1,17 +1,21 @@
 import axios from 'axios';
 
-export async function signup(client) {
-  return (await axios.post('/clients/signup', {user : client}));
+export async function signup(credentials) {
+  return (await axios.post('/clients/signup', {user : credentials})).data;
 }
 
 export async function signin(credentials){
-  return (await axios.post('/clients/signin', {credentials: credentials}));
+  return (await axios.post('/clients/signin', {credentials: credentials})).data;
 }
 
-export async function getUserInformation(userId) {
-  return (await axios.get('/clients/compte'), {_id : userId}).data;
+export async function signout(){
+  axios.post('/clients/signout');
+}
+
+export async function getUserInformation() {
+  return (await axios.get('/clients/user/account')).data;
 }
 
 export async function savenewinformation(information){
-  await axios.post('/clients/account/save', {information : information} );
+  return (await axios.put('/clients/account/save', {information : information})).data;
 }

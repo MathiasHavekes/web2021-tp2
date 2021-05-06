@@ -1,7 +1,6 @@
 <template>
-  <v-card class="container">
+  <v-container>
     <h3 class="title">Historique des locations</h3>
-    <br />
     <v-row>
       <div v-for="location in locations" :key="location.id">
         <v-col>
@@ -9,7 +8,7 @@
         </v-col>
       </div>
     </v-row>
-  </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -73,17 +72,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.title {
-  margin-left: 43%;
-}
-
-.container {
-  width: 90%;
-  margin-left: 5%;
-}
-
-.lease-card {
-  margin: 2px;
-}
-</style>

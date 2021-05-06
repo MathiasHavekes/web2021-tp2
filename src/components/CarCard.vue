@@ -3,7 +3,7 @@
     <v-img :src="requireImages(car.image)" height="200px"></v-img>
 
     <v-card-title>
-      {{ car.title }}
+      {{ car.model }}
     </v-card-title>
 
     <v-card-subtitle>
@@ -45,9 +45,12 @@ export default {
 
   methods: {
     requireImages: function (src) {
-      console.log("../assets/images_cars/" + src);
       return require("../assets/images_cars/" + src);
     },
+  },
+
+  mounted() {
+    console.log(this.car);
   },
 };
 </script>

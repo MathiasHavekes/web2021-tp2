@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export async function postNewLease() {
-  axios.post('/leases');
+  return (await axios.post('/leases/register/new/lease')).data;
 }

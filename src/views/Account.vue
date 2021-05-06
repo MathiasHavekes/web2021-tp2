@@ -1,19 +1,29 @@
 <template>
-  <div>
-    <AccountInformation />
-    <br>
+  <v-container>
+    <AccountInformation :userInfo="userInfo" />
     <LeasesHistory />
-  </div>
+  </v-container>
 </template>
 
 <script>
 import AccountInformation from "@/components/AccountInformation";
 import LeasesHistory from "@/components/LeasesHistory";
+import { getUserInformation } from "@/api/clients";
 
 export default {
   components: {
-    AccountInformation: AccountInformation,
-    LeasesHistory: LeasesHistory,
+    AccountInformation,
+    LeasesHistory,
+  },
+
+  data() {
+    return {
+      userInfo: {},
+    };
+  },
+
+  async created() {
+    this.userInfo = await getUserInformation();
   },
 };
 </script>

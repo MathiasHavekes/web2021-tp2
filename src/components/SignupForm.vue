@@ -1,10 +1,14 @@
 <template>
-  <v-card class="container" color="secondary">
-    <v-form class="sign-up-form" ref="form" v-model="valid" lazy-validation>
-      <h2 class="title">CarBay</h2>
+  <v-card color="secondary">
+    <v-form
+      v-model="valid"
+      lazy-validation
+      @submit.prevent="createUser(credentials)"
+    >
+      <h2 class="title">Créer un compte</h2>
 
       <v-text-field
-        v-model="client.surname"
+        v-model="credentials.surname"
         label="Prénom"
         :rules="nameRules"
         color="antiBackground"
@@ -12,7 +16,7 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="client.name"
+        v-model="credentials.name"
         :rules="nameRules"
         label="Nom"
         color="antiBackground"
@@ -20,7 +24,7 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="client.emailAddress"
+        v-model="credentials.emailAddress"
         :rules="emailRules"
         label="Adresse mail"
         color="antiBackground"
@@ -29,7 +33,7 @@
       </v-text-field>
 
       <v-text-field
-        v-model="client.password"
+        v-model="credentials.password"
         :rules="passwordRules"
         label="Mot de passe"
         color="antiBackground"
@@ -40,7 +44,7 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="client.phoneNumber"
+        v-model="credentials.phoneNumber"
         label="Numéro de téléphone"
         color="antiBackground"
         required
@@ -53,12 +57,12 @@
       ></v-checkbox>
 
       <v-btn
+        type="submit"
         :disabled="!valid"
-        color="primary"
+        color="background"
         class="btn-connexion"
-        @click="createUser(client)"
       >
-        Inscription
+        Valider
       </v-btn>
     </v-form>
   </v-card>
@@ -69,7 +73,7 @@ import { signup } from "@/api/clients";
 
 export default {
   data: () => ({
-    client: {
+    credentials: {
       surname: "",
       name: "",
       emailAddress: "",
@@ -95,32 +99,26 @@ export default {
   }),
 
   methods: {
-    createUser: async function createUser(client) {
-      await signup(client);
+    createUser: async function createUser(credentials) {
+      let inserted = await signup(credentials);
+      console.log(inserted);
+
+      if (inserted.isInserted) {
+        this.$router.push("/user/signin");
+        this.$store.commit("setAlert", {
+          type: "success",
+          message: "Compte crée, vouz pouvez vous connecter",
+          isVisible: true,
+        });
+      } else {
+        this.$store.commit("setAlert", {
+          type: "error",
+          message: "Identifiants déjà utilisés, veuillez réessayer",
+          isVisible: true,
+        });
+      }
     },
   },
 };
 </script>
 
-<style >
-.btn-connexion {
-  margin-left: 30%;
-}
-
-.container {
-  margin-top: 5%;
-  width: 30%;
-  border-radius: 15px;
-}
-.title {
-  width: 10%;
-}
-
-.sign-up-form {
-  width: 70%;
-  margin: auto;
-  padding: 20px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-</style>

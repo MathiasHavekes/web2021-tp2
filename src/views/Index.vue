@@ -28,8 +28,8 @@ import { getCars } from "@/api/cars";
 
 export default {
   components: {
-    DestinationCarousel: DestinationCarousel,
-    CarCard: CarCard,
+    DestinationCarousel,
+    CarCard,
   },
 
   data() {
