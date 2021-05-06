@@ -6,7 +6,7 @@
       <br />
 
       <v-btn color="background" class="mr-4" to="/user/signin">
-        Connetez-vous
+        Connectez-vous
       </v-btn>
     </div>
   </v-card>

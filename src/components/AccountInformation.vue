@@ -46,13 +46,15 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="background" class="btn-sauvegarde">
+      <v-btn :disabled="!valid" color="background" @click="updateInfo(userInfo)" class="btn-sauvegarde">
         Sauvegarder
       </v-btn>
     </v-form>
   </v-card>
 </template>
 <script>
+import { savenewinformation } from "@/api/clients";
+
 export default {
   props: {
     userInfo: Object,
@@ -72,9 +74,19 @@ export default {
     nameRules: [(v) => !!v || "Champ obligatoire !"],
   }),
 
-  methods: {},
-  created() {
-    console.log(this.userInfo);
+  methods: {
+    updateInfo : async function updateinfo(userInfo){
+      let isUpdated = await savenewinformation(userInfo);
+      if (isUpdated) {
+        this.$router.push("/user/account");
+        this.$store.commit("setAlert", {
+          type: "success",
+          message:
+            "Vos informations ont été mises à jour !",
+          isVisible: true,
+        });
+      }
+    }
   },
 };
 </script>
