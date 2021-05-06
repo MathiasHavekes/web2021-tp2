@@ -101,7 +101,6 @@ export default {
   methods: {
     createUser: async function createUser(credentials) {
       let inserted = await signup(credentials);
-      console.log(inserted);
 
       if (inserted.isInserted) {
         this.$router.push("/user/signin");
