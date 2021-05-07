@@ -49,12 +49,7 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item
-            link
-            v-if="isConnected()"
-            :to="`/rent/car`"
-            active-class="no-active"
-          >
+          <v-list-item link v-if="isConnected()" :to="`/rent/car`">
             <v-list-item-icon>
               <v-icon>mdi-car-electric</v-icon>
             </v-list-item-icon>

@@ -1,26 +1,34 @@
 <template>
-  <v-card class="container" color="secondary">
+  <v-card color="secondary">
     <v-form lazy-validation @submit.prevent="authentificate(credentials)">
-      <h2 class="title">Se connecter</h2>
+      <v-layout class="my-12" row>
+        <v-spacer />
+        <v-flex xs10 md8 lg6>
+          <v-layout column>
+            <h2 class="title">Se connecter</h2>
 
-      <v-text-field
-        v-model="credentials.emailAddress"
-        label="Adresse mail"
-        required
-        color="antiBackground"
-      ></v-text-field>
+            <v-text-field
+              v-model="credentials.emailAddress"
+              label="Adresse mail"
+              required
+              color="antiBackground"
+            ></v-text-field>
 
-      <v-text-field
-        v-model="credentials.password"
-        label="Mot de passe"
-        type="password"
-        color="antiBackground"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="credentials.password"
+              label="Mot de passe"
+              type="password"
+              color="antiBackground"
+              required
+            ></v-text-field>
 
-      <v-btn type="submit" color="background" class="btn-connexion">
-        Connexion
-      </v-btn>
+            <v-btn type="submit" color="background" class="btn-connexion" large>
+              Connexion
+            </v-btn>
+          </v-layout>
+        </v-flex>
+        <v-spacer />
+      </v-layout>
     </v-form>
   </v-card>
 </template>

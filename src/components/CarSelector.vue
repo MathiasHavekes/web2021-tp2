@@ -4,7 +4,6 @@
     :items="filteredCars"
     item-value="_id"
     item-text="model"
-    dense
     label="Choisir une voiture"
     color="antiBackground"
   ></v-autocomplete>

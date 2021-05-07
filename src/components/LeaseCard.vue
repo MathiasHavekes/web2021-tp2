@@ -1,6 +1,6 @@
 <template>
   <v-card class="parent" max-width="313" color="secondary">
-    <v-img src="../assets/images_cars/audi_e-tron.jpg"  height="200px"></v-img>
+    <v-img :src="requireImages(lease.carImage)" height="200px"></v-img>
 
     <v-card-title>
       Modèle de voiture :
@@ -37,11 +37,13 @@
 
         <v-divider></v-divider>
 
-        <v-card-text> Centre de départ : {{ lease.Facility }} </v-card-text>
+        <v-card-text> Centre de départ : {{ lease.facility }} </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-text> Adresse du centre : {{ lease.AddressFacility }} </v-card-text>
+        <v-card-text>
+          Adresse du centre : {{ lease.addressFacility }}
+        </v-card-text>
       </div>
     </v-expand-transition>
   </v-card>
@@ -57,6 +59,12 @@ export default {
 
   props: {
     lease: Object,
+  },
+
+  methods: {
+    requireImages: function (src) {
+      return require("../assets/images_cars/" + src);
+    },
   },
 };
 </script>

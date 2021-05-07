@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    alert: { type: "", message: "", isVisible: false },
+    alert: { type: "info", message: "", isVisible: false },
   },
   mutations: {
     setAlert: (state, payload) => {

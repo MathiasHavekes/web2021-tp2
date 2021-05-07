@@ -1,6 +1,6 @@
 <template>
-  <v-card class="container" color="secondary">
-    <v-form v-model="valid" lazy-validation>
+  <v-card color="secondary">
+    <v-form v-model="valid">
       <h2 class="title">Votre compte</h2>
 
       <v-text-field
@@ -47,7 +47,6 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="confirmedPassword"
         :rules="passwordConfirmationRules"
         label="Confirmez votre mot de passe"
         color="antiBackground"
@@ -57,7 +56,11 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="background" @click="updateInfo(userInfo)" class="btn-sauvegarde">
+      <v-btn
+        :disabled="!valid"
+        color="background"
+        @click="updateInfo(userInfo)"
+      >
         Sauvegarder
       </v-btn>
     </v-form>
@@ -75,8 +78,7 @@ export default {
     return {
       value: String,
       valueConfirmed: String,
-      valid: true,
-      confirmedPassword : "",
+      valid: false,
 
       passwordRules: [
         (v) => !!v || "Champ obligatoire !",
@@ -85,28 +87,28 @@ export default {
           "Votre mot de passe doit contenir au moins 8 caractères!",
       ],
 
-      passwordConfirmationRules : [
-          (v) => !!v || "Champ obligatoire !",
-          (v) => (v === this.userInfo.password) || "Les mots de passe ne correspondent pas.",
+      passwordConfirmationRules: [
+        (v) => !!v || "Champ obligatoire !",
+        (v) =>
+          v === this.userInfo.password ||
+          "Les mots de passe ne correspondent pas.",
       ],
 
-      nameRules: [(v) => !!v || "Champ obligatoire !",]
-    }
+      nameRules: [(v) => !!v || "Champ obligatoire !"],
+    };
   },
 
   methods: {
-    updateInfo : async function updateinfo(userInfo){
+    updateInfo: async function updateinfo(userInfo) {
       let isUpdated = await savenewinformation(userInfo);
       if (isUpdated) {
-        this.$router.push("/user/account");
         this.$store.commit("setAlert", {
           type: "success",
-          message:
-            "Vos informations ont été mises à jour !",
+          message: "Vos informations ont été mises à jour !",
           isVisible: true,
         });
       }
-    }
+    },
   },
 };
 </script>

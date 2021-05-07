@@ -2,79 +2,90 @@
   <v-card color="secondary">
     <v-form
       v-model="valid"
-      lazy-validation
+
       @submit.prevent="createUser(credentials)"
     >
-      <h2 class="title">Créer un compte</h2>
+      <v-layout class="my-12" row>
+        <v-spacer />
+        <v-flex xs10 md8 lg6>
+          <v-layout column>
+            <h2 class="title">Créer un compte</h2>
 
-      <v-text-field
-        v-model="credentials.surname"
-        label="Prénom"
-        :rules="nameRules"
-        color="antiBackground"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="credentials.surname"
+              label="Prénom"
+              :rules="nameRules"
+              color="antiBackground"
+              required
+            ></v-text-field>
 
-      <v-text-field
-        v-model="credentials.name"
-        :rules="nameRules"
-        label="Nom"
-        color="antiBackground"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="credentials.name"
+              :rules="nameRules"
+              label="Nom"
+              color="antiBackground"
+              required
+            ></v-text-field>
 
-      <v-text-field
-        v-model="credentials.emailAddress"
-        :rules="emailRules"
-        label="Adresse mail"
-        color="antiBackground"
-        required
-      >
-      </v-text-field>
+            <v-text-field
+              v-model="credentials.emailAddress"
+              :rules="emailRules"
+              label="Adresse mail"
+              color="antiBackground"
+              required
+            >
+            </v-text-field>
 
-      <v-text-field
-        v-model="credentials.password"
-        :rules="passwordRules"
-        label="Mot de passe"
-        color="antiBackground"
-        :append-icon="value ? 'Aa' : '•'"
-        @click:append="() => (value = !value)"
-        :type="value ? 'password' : 'text'"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="credentials.password"
+              :rules="passwordRules"
+              label="Mot de passe"
+              color="antiBackground"
+              :append-icon="value ? 'Aa' : '•'"
+              @click:append="() => (value = !value)"
+              :type="value ? 'password' : 'text'"
+              required
+            ></v-text-field>
 
-        <v-text-field
-        v-model="confimedPassword"
-        :rules="passwordConfirmationRules"
-        label="Confirmez votre mot de passe"
-        color="antiBackground"
-        :append-icon="valueConfirmed ? 'Aa' : '•'"
-        @click:append="() => (valueConfirmed = !valueConfirmed)"
-        :type="valueConfirmed ? 'password' : 'text'"
-        required
-      ></v-text-field>
+            <v-text-field
+              :rules="passwordConfirmationRules"
+              label="Confirmation mot de passe"
+              color="antiBackground"
+              :append-icon="valueConfirmed ? 'Aa' : '•'"
+              @click:append="() => (valueConfirmed = !valueConfirmed)"
+              :type="valueConfirmed ? 'password' : 'text'"
+              required
+            ></v-text-field>
 
-      <v-text-field
-        v-model="credentials.phoneNumber"
-        label="Numéro de téléphone"
-        color="antiBackground"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="credentials.phoneNumber"
+              label="Numéro de téléphone"
+              color="antiBackground"
+              :rules="phoneRules"
+              required
+            ></v-text-field>
 
-      <v-checkbox
-        :rules="[(v) => !!v || 'Vous devez accepter pour continuer!']"
-        label="En cliquant sur Inscription, vous acceptez nos conditions, notre politique de données et notre politique de cookies."
-        required
-      ></v-checkbox>
+            <v-checkbox
+              color="antiBackground"
+              wrap
+              :rules="[(v) => !!v || 'Vous devez accepter pour continuer!']"
+              label="Cliquer pour valider l'inscription"
+              required
+            ></v-checkbox>
 
-      <v-btn
-        type="submit"
-        :disabled="!valid"
-        color="background"
-        class="btn-connexion"
-      >
-        Valider
-      </v-btn>
+            <v-btn
+              type="submit"
+              :disabled="!valid"
+              color="background"
+              class="btn-connexion"
+              large
+            >
+              Valider
+            </v-btn>
+          </v-layout>
+        </v-flex>
+        <v-spacer />
+      </v-layout>
     </v-form>
   </v-card>
 </template>
@@ -83,7 +94,7 @@
 import { signup } from "@/api/clients";
 
 export default {
-  data(){
+  data() {
     return {
       credentials: {
         surname: "",
@@ -92,7 +103,7 @@ export default {
         password: "",
         phoneNumber: "",
       },
-      confimedPassword: "",
+      valid: false,
       value: String,
       valueConfirmed: String,
 
@@ -108,14 +119,20 @@ export default {
           "Votre mot de passe doit contenir au moins 8 caractères!",
       ],
 
-      passwordConfirmationRules : [
+      passwordConfirmationRules: [
         (v) => !!v || "Champ obligatoire !",
-        (v) => (v === this.credentials.password) || "Les mots de passe ne correspondent pas.",
+        (v) =>
+          v === this.credentials.password ||
+          "Les mots de passe ne correspondent pas.",
+      ],
+
+      phoneRules: [
+        (v) => !!v || "Champ obligatoire !",
       ],
 
       nameRules: [(v) => !!v || "Champ obligatoire !"],
-        }
-      },
+    };
+  },
 
   methods: {
     createUser: async function createUser(credentials) {
@@ -126,7 +143,7 @@ export default {
         this.$router.push("/user/signin");
         this.$store.commit("setAlert", {
           type: "success",
-          message: "Compte crée, vouz pouvez vous connecter",
+          message: "Compte créé, vouz pouvez vous connecter",
           isVisible: true,
         });
       } else {

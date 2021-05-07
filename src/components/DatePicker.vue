@@ -1,29 +1,33 @@
 <template>
-  <v-container class="d-flex flex-row justify-center">
-    <v-date-picker
-      v-model="dates"
-      range
-      :allowed-dates="getAllowedDates"
-      header-color="primary"
-      light
-    ></v-date-picker>
+  <v-layout row align-center class="ma-0">
+    <v-flex xs12 md7 lg7>
+      <v-date-picker
+        v-model="dates"
+        range
+        :allowed-dates="getAllowedDates"
+        header-color="primary"
+        light
+      ></v-date-picker>
+    </v-flex>
 
-    <v-container class="d-flex flex-column pl-16">
-      <v-text-field
-        v-model="dates[0]"
-        label="Date de debut"
-        prepend-icon="mdi-calendar"
-        color="antiBackground"
-      ></v-text-field>
+    <v-flex xs10 md5 lg5>
+      <v-layout column>
+        <v-text-field
+          v-model="dates[0]"
+          label="Date de debut"
+          prepend-icon="mdi-calendar"
+          color="antiBackground"
+        ></v-text-field>
 
-      <v-text-field
-        v-model="dates[1]"
-        label="Date de fin"
-        prepend-icon="mdi-calendar"
-        color="antiBackground"
-      ></v-text-field>
-    </v-container>
-  </v-container>
+        <v-text-field
+          v-model="dates[1]"
+          label="Date de fin"
+          prepend-icon="mdi-calendar"
+          color="antiBackground"
+        ></v-text-field>
+      </v-layout>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
