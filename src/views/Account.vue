@@ -1,8 +1,14 @@
 <template>
-  <v-container>
-    <AccountInformation :userInfo="userInfo" />
-    <LeasesHistory :userLeases="userLeases"/>
-  </v-container>
+  <v-layout column class="my-12">
+    <v-layout row class="mt-3">
+      <v-spacer />
+      <v-flex xs10 md6 lg4>
+        <AccountInformation :userInfo="userInfo" />
+      </v-flex>
+      <v-spacer />
+    </v-layout>
+    <LeasesHistory :userLeases="userLeases" />
+  </v-layout>
 </template>
 
 <script>
@@ -20,7 +26,7 @@ export default {
   data() {
     return {
       userInfo: {},
-      userLeases : [],
+      userLeases: [],
     };
   },
 

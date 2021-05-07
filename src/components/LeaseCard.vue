@@ -1,14 +1,13 @@
 <template>
-  <v-card class="parent" max-width="313" color="secondary">
+  <v-card class="parent" max-width="500" color="secondary">
     <v-img :src="requireImages(lease.carImage)" height="200px"></v-img>
 
     <v-card-title>
-      Modèle de voiture :
       {{ lease.carModel }}
     </v-card-title>
 
     <v-card-actions>
-      <v-btn text> + Details </v-btn>
+      <v-btn text @click="show = !show"> + Détails </v-btn>
 
       <v-spacer />
 

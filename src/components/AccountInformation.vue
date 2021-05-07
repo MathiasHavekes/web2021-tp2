@@ -1,69 +1,77 @@
 <template>
   <v-card color="secondary">
     <v-form v-model="valid" lazy-validation>
-      <h2 class="title">Votre compte</h2>
+      <v-layout row>
+        <v-spacer />
+        <v-flex xs10 md8 lg6>
+          <v-layout column class="my-12">
+            <h2 class="title">Votre compte</h2>
 
-      <v-text-field
-        color="antiBackground"
-        v-model="userInfo.surname"
-        label="Prénom"
-        :rules="nameRules"
-        required
-      ></v-text-field>
+            <v-text-field
+              color="antiBackground"
+              v-model="userInfo.surname"
+              label="Prénom"
+              :rules="nameRules"
+              required
+            ></v-text-field>
 
-      <v-text-field
-        v-model="userInfo.name"
-        :rules="nameRules"
-        color="antiBackground"
-        label="Nom"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="userInfo.name"
+              :rules="nameRules"
+              color="antiBackground"
+              label="Nom"
+              required
+            ></v-text-field>
 
-      <v-text-field
-        v-model="userInfo.emailAddress"
-        label="Adresse mail"
-        color="antiBackground"
-        required
-        readonly
-      ></v-text-field>
+            <v-text-field
+              v-model="userInfo.emailAddress"
+              label="Adresse mail"
+              color="antiBackground"
+              required
+              readonly
+            ></v-text-field>
 
-      <v-text-field
-        v-model="userInfo.phoneNumber"
-        label="Numéro de téléphone"
-        color="antiBackground"
-        required
-        readonly
-      ></v-text-field>
+            <v-text-field
+              v-model="userInfo.phoneNumber"
+              label="Numéro de téléphone"
+              color="antiBackground"
+              required
+              readonly
+            ></v-text-field>
 
-      <v-text-field
-        v-model="userInfo.password"
-        :rules="passwordRules"
-        color="antiBackground"
-        label="Nouveau mot de passe"
-        :append-icon="value ? 'Aa' : '•'"
-        @click:append="() => (value = !value)"
-        :type="value ? 'password' : 'text'"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="userInfo.password"
+              :rules="passwordRules"
+              color="antiBackground"
+              label="Nouveau mot de passe"
+              :append-icon="value ? 'Aa' : '•'"
+              @click:append="() => (value = !value)"
+              :type="value ? 'password' : 'text'"
+              required
+            ></v-text-field>
 
-      <v-text-field
-        v-model="confimedPassword"
-        :rules="passwordConfirmationRules"
-        label="Confirmez votre mot de passe"
-        color="antiBackground"
-        :append-icon="valueConfirmed ? 'Aa' : '•'"
-        @click:append="() => (valueConfirmed = !valueConfirmed)"
-        :type="valueConfirmed ? 'password' : 'text'"
-        required
-      ></v-text-field>
+            <v-text-field
+              v-model="confimedPassword"
+              :rules="passwordConfirmationRules"
+              label="Confirmez votre mot de passe"
+              color="antiBackground"
+              :append-icon="valueConfirmed ? 'Aa' : '•'"
+              @click:append="() => (valueConfirmed = !valueConfirmed)"
+              :type="valueConfirmed ? 'password' : 'text'"
+              required
+            ></v-text-field>
 
-      <v-btn
-        :disabled="!valid"
-        color="background"
-        @click="updateInfo(userInfo)"
-      >
-        Sauvegarder
-      </v-btn>
+            <v-btn
+              :disabled="!valid"
+              color="background"
+              @click="updateInfo(userInfo)"
+            >
+              Sauvegarder
+            </v-btn>
+          </v-layout>
+        </v-flex>
+        <v-spacer />
+      </v-layout>
     </v-form>
   </v-card>
 </template>

@@ -5,10 +5,10 @@
       lazy-validation
       @submit.prevent="createUser(credentials)"
     >
-      <v-layout class="my-12" row>
+      <v-layout row>
         <v-spacer />
         <v-flex xs10 md8 lg6>
-          <v-layout column>
+          <v-layout column class="my-12">
             <h2 class="title">Créer un compte</h2>
 
             <v-text-field

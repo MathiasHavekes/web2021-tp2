@@ -1,5 +1,5 @@
 <template>
-  <v-layout column class="index">
+  <v-layout column>
     <DestinationCarousel />
 
     <v-layout class="my-12" column align-center>
