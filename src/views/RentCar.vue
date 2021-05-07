@@ -1,32 +1,54 @@
 <template>
-  <v-card class="container" color="secondary">
-    <div class="leaseform">
-      <v-form @submit.prevent="sendNewLeaseInfo(formData)">
-        <DatePicker v-model="formData.dates" />
-        <GoogleMap class="Googlemaps" :allFacilities="allFacilities" />
-        <FacilitiesPicker
-          v-model="formData.facilities"
-          :allFacilities="allFacilities"
-        />
-        <CarSelector
-          v-if="formData.facilities.start"
-          v-model="formData.car"
-          :allCars="allCars"
-          :selectedFacility="formData.facilities.start"
-        />
-        <v-btn
-          type="submit"
-          color="background"
-          class="btn-submit"
-          depressed
-          elevation="2"
-          large
-        >
-          Louer
-        </v-btn>
-      </v-form>
-    </div>
-  </v-card>
+  <v-layout row class="my-12">
+    <v-spacer />
+    <v-flex xs10 md9 lg8>
+      <v-card class="container" color="secondary">
+        <v-form @submit.prevent="sendNewLeaseInfo(formData)">
+          <v-layout row>
+            <v-spacer />
+            <v-flex xs10 md10 lg10>
+              <v-layout column>
+                <DatePicker v-model="formData.dates" class="my-12" />
+
+                <GoogleMap :allFacilities="allFacilities" class="my-6" />
+
+                <FacilitiesPicker
+                  v-model="formData.facilities"
+                  :allFacilities="allFacilities"
+                  class="my-12"
+                />
+
+                <CarSelector
+                  v-if="formData.facilities.start"
+                  v-model="formData.car"
+                  :allCars="allCars"
+                  :selectedFacility="formData.facilities.start"
+                  class="my-12"
+                />
+
+                <v-layout row class="my-12">
+                  <v-spacer />
+                  <v-flex xs6 md6 lg6>
+                    <v-btn
+                      style="width: 100%"
+                      type="submit"
+                      color="background"
+                      large
+                    >
+                      Louer
+                    </v-btn>
+                  </v-flex>
+                  <v-spacer />
+                </v-layout>
+              </v-layout>
+            </v-flex>
+            <v-spacer />
+          </v-layout>
+        </v-form>
+      </v-card>
+    </v-flex>
+    <v-spacer />
+  </v-layout>
 </template>
 
 <script>
@@ -72,8 +94,24 @@ export default {
 
   methods: {
     sendNewLeaseInfo: async function (leaseInfo) {
-      await postNewLease(leaseInfo);
-      this.$router.push("/user/account");
+      let inserted = await postNewLease(leaseInfo);
+      if (inserted.isInserted) {
+        this.$router.push("/user/account");
+        this.$store.commit("setAlert", {
+          type: "success",
+          message:
+            "La location a bien été enregistrée, vous pouvez allez cherche votre " +
+            inserted.carModel +
+            " dans un centre CarBay.",
+          isVisible: true,
+        });
+      } else {
+        this.$store.commit("setAlert", {
+          type: "error",
+          message: "La location a été refuse, veuillez ressayer !",
+          isVisible: true,
+        });
+      }
     },
   },
 
@@ -83,26 +121,4 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container {
-  margin-top: 5%;
-  width: 60%;
-  border-radius: 10px;
-  margin-bottom: 5%;
-}
-
-.leaseform {
-  width: 100%;
-}
-
-.btn-submit {
-  margin-left: 42%;
-  width: 15%;
-}
-
-.Googlemaps {
-  width: 100%;
-}
-</style>
 

@@ -1,24 +1,22 @@
 <template>
-  <div class="index">
+  <v-layout column class="index">
     <DestinationCarousel />
 
-    <v-container class="d-flex flex-column">
-      <h1 class="text-center">Des dixaines de voitures disponibles</h1>
-      <h2 class="text-center">
+    <v-layout class="my-12" column align-center wrap>
+      <h1>Des dixaines de voitures disponibles</h1>
+      <h2>
         Sauvez la planete en optant pour des modeles electriques ou hybrides !
       </h2>
-    </v-container>
+    </v-layout>
 
-    <v-container class="my-16" style="width: 75%">
-      <v-row justify="center">
-        <div v-for="car in cars" :key="car.title">
-          <v-col>
-            <CarCard :car="car" />
-          </v-col>
-        </div>
-      </v-row>
-    </v-container>
-  </div>
+    <v-layout class="my-12" row wrap justify-center>
+      <div v-for="car in cars" :key="car.title">
+        <v-flex xs12 md11 lg10>
+          <CarCard :car="car" />
+        </v-flex>
+      </div>
+    </v-layout>
+  </v-layout>
 </template>
 
 <script>

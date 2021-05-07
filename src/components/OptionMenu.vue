@@ -8,15 +8,14 @@
 
     <v-list color="background">
       <v-list-item-group>
-        <v-list-item>
-          <v-switch
-            v-model="$vuetify.theme.dark"
-            append-icon="mdi-brightness-6"
-            inset
-            persistent-hint
-            color="antiPrimary"
-          ></v-switch>
-        </v-list-item>
+        <v-switch
+          class="mx-5"
+          v-model="$vuetify.theme.dark"
+          append-icon="mdi-brightness-6"
+          inset
+          persistent-hint
+          color="antiPrimary"
+        ></v-switch>
       </v-list-item-group>
     </v-list>
   </v-menu>
@@ -31,3 +30,6 @@ export default {
   },
 };
 </script>
+
+
+
