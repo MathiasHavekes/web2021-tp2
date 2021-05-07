@@ -27,7 +27,6 @@ export default {
   async created() {
     this.userInfo = await getUserInformation();
     this.userLeases = await getUserLeases();
-    console.log(this.userLeases);
   },
 };
 </script>

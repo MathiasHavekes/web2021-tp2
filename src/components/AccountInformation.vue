@@ -47,7 +47,7 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="confimedPassword"
+        v-model="confirmedPassword"
         :rules="passwordConfirmationRules"
         label="Confirmez votre mot de passe"
         color="antiBackground"
@@ -73,23 +73,24 @@ export default {
 
   data() {
     return {
-    value: String,
-    valueConfirmed: String,
-    valid: true,
+      value: String,
+      valueConfirmed: String,
+      valid: true,
+      confirmedPassword : "",
 
-    passwordRules: [
-      (v) => !!v || "Champ obligatoire !",
-      (v) =>
-        (v && v.length >= 8) ||
-        "Votre mot de passe doit contenir au moins 8 caractères!",
-    ],
-
-    passwordConfirmationRules : [
+      passwordRules: [
         (v) => !!v || "Champ obligatoire !",
-        (v) => (v === this.userInfo.password) || "Les mots de passe ne correspondent pas."
+        (v) =>
+          (v && v.length >= 8) ||
+          "Votre mot de passe doit contenir au moins 8 caractères!",
       ],
 
-    nameRules: [(v) => !!v || "Champ obligatoire !"],
+      passwordConfirmationRules : [
+          (v) => !!v || "Champ obligatoire !",
+          (v) => (v === this.userInfo.password) || "Les mots de passe ne correspondent pas.",
+      ],
+
+      nameRules: [(v) => !!v || "Champ obligatoire !",]
     }
   },
 

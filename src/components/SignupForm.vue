@@ -110,7 +110,7 @@ export default {
 
       passwordConfirmationRules : [
         (v) => !!v || "Champ obligatoire !",
-        (v) => (v === this.credentials.password) || "Les mots de passe ne correspondent pas."
+        (v) => (v === this.credentials.password) || "Les mots de passe ne correspondent pas.",
       ],
 
       nameRules: [(v) => !!v || "Champ obligatoire !"],
