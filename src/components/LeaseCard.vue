@@ -1,6 +1,6 @@
 <template>
   <v-card class="parent" max-width="313" color="secondary">
-    <v-img src="../assets/images_cars/tesla_model_s.jpg" height="200px"></v-img>
+    <v-img src="'../assets/images_cars/'+ '${carImage}"  height="200px"></v-img>
 
     <v-card-title>
       Modèle de voiture :

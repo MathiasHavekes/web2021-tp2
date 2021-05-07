@@ -24,56 +24,6 @@ export default {
     LeaseCard: LeaseCard,
   },
 
-  data() {
-    return {
-      locations: [
-        {
-          id: "#36",
-          src: "../assets/images_bd/tesla_model_s.jpg",
-          durée: "14 jours",
-          price: 980,
-          dateDebut: "7-04-2021",
-          dateFin: "21-04-2021",
-          centreDepot: "Carbay Rental Montreal AirPort",
-        },
-        {
-          id: "#2895",
-          src: "../assets/images_bd/tesla_model_s.jpg",
-          durée: "21 jours",
-          price: 1470,
-          dateDebut: "7-04-2021",
-          dateFin: "28-04-2021",
-          centreDepot: "Carbay Rental Montreal AirPort",
-        },
-        {
-          id: "#3",
-          src: "../assets/images_bd/tesla_model_s.jpg",
-          durée: "18 jours",
-          price: 1200,
-          dateDebut: "7-04-2021",
-          dateFin: "25-04-2021",
-          centreDepot: "Carbay Rental Montreal AirPort",
-        },
-        {
-          id: "#36",
-          src: "../assets/images_bd/tesla_model_s.jpg",
-          durée: "14 jours",
-          price: 980,
-          dateDebut: "7-04-2021",
-          dateFin: "21-04-2021",
-          centreDepot: "Carbay Rental Montreal AirPort",
-        },
-        {
-          id: "#36",
-          src: "../assets/images_bd/tesla_model_s.jpg",
-          durée: "14 jours",
-          price: 980,
-          dateDebut: "7-04-2021",
-          dateFin: "21-04-2021",
-          centreDepot: "Carbay Rental Montreal AirPort",
-        },
-      ],
-    };
-  },
+  data() {},
 };
 </script>

@@ -46,6 +46,17 @@
         required
       ></v-text-field>
 
+      <v-text-field
+        v-model="confimedPassword"
+        :rules="passwordConfirmationRules"
+        label="Confirmez votre mot de passe"
+        color="antiBackground"
+        :append-icon="valueConfirmed ? 'Aa' : '•'"
+        @click:append="() => (valueConfirmed = !valueConfirmed)"
+        :type="valueConfirmed ? 'password' : 'text'"
+        required
+      ></v-text-field>
+
       <v-btn :disabled="!valid" color="background" @click="updateInfo(userInfo)" class="btn-sauvegarde">
         Sauvegarder
       </v-btn>
@@ -60,8 +71,10 @@ export default {
     userInfo: Object,
   },
 
-  data: () => ({
+  data() {
+    return {
     value: String,
+    valueConfirmed: String,
     valid: true,
 
     passwordRules: [
@@ -71,8 +84,14 @@ export default {
         "Votre mot de passe doit contenir au moins 8 caractères!",
     ],
 
+    passwordConfirmationRules : [
+        (v) => !!v || "Champ obligatoire !",
+        (v) => (v === this.userInfo.password) || "Les mots de passe ne correspondent pas."
+      ],
+
     nameRules: [(v) => !!v || "Champ obligatoire !"],
-  }),
+    }
+  },
 
   methods: {
     updateInfo : async function updateinfo(userInfo){

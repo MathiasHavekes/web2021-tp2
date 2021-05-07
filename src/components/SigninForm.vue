@@ -37,6 +37,7 @@ export default {
 
   methods: {
     authentificate: async function (credentials) {
+      credentials.emailAddress = credentials.emailAddress.toLowerCase();
       let connected = await signin(credentials);
 
       if (connected.isConnected) {
