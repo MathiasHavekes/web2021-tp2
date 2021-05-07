@@ -1,6 +1,6 @@
 <template>
   <v-card color="secondary">
-    <v-form lazy-validation @submit.prevent="authentificate(credentials)">
+    <v-form @submit.prevent="authentificate(credentials)">
       <v-layout row>
         <v-spacer />
         <v-flex xs10 md8 lg6>

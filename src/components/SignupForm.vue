@@ -1,10 +1,6 @@
 <template>
   <v-card color="secondary">
-    <v-form
-      v-model="valid"
-      lazy-validation
-      @submit.prevent="createUser(credentials)"
-    >
+    <v-form v-model="valid" @submit.prevent="createUser(credentials)">
       <v-layout row>
         <v-spacer />
         <v-flex xs10 md8 lg6>
@@ -48,7 +44,6 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="confimedPassword"
               :rules="passwordConfirmationRules"
               label="Confirmation mot de passe"
               color="antiBackground"
@@ -62,6 +57,7 @@
               v-model="credentials.phoneNumber"
               label="Numéro de téléphone"
               color="antiBackground"
+              :rules="phoneRules"
               required
             ></v-text-field>
 
@@ -103,8 +99,7 @@ export default {
         password: "",
         phoneNumber: "",
       },
-      valid: true,
-      confimedPassword: "",
+      valid: false,
       value: String,
       valueConfirmed: String,
 
@@ -126,6 +121,8 @@ export default {
           v === this.credentials.password ||
           "Les mots de passe ne correspondent pas.",
       ],
+
+      phoneRules: [(v) => !!v || "Champ obligatoire !"],
 
       nameRules: [(v) => !!v || "Champ obligatoire !"],
     };

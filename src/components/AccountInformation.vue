@@ -1,11 +1,11 @@
 <template>
   <v-card color="secondary">
-    <v-form v-model="valid" lazy-validation>
+    <v-form v-model="valid">
       <v-layout row>
         <v-spacer />
         <v-flex xs10 md8 lg6>
           <v-layout column class="my-12">
-            <h2 class="title">Votre compte</h2>
+            <h2>Votre compte</h2>
 
             <v-text-field
               color="antiBackground"
@@ -51,7 +51,6 @@
             ></v-text-field>
 
             <v-text-field
-              v-model="confimedPassword"
               :rules="passwordConfirmationRules"
               label="Confirmez votre mot de passe"
               color="antiBackground"
@@ -87,7 +86,7 @@ export default {
     return {
       value: String,
       valueConfirmed: String,
-      valid: true,
+      valid: false,
 
       passwordRules: [
         (v) => !!v || "Champ obligatoire !",
