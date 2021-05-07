@@ -83,15 +83,6 @@ export default {
     };
   },
 
-  watch: {
-    formData: {
-      deep: true,
-      handler() {
-        console.log(this.formData);
-      },
-    },
-  },
-
   methods: {
     sendNewLeaseInfo: async function (leaseInfo) {
       let inserted = await postNewLease(leaseInfo);

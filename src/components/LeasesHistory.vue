@@ -15,15 +15,12 @@
 import LeaseCard from "../components/LeaseCard";
 
 export default {
-
-  props : {
-    userLeases : Array,  
-  },
-
   components: {
     LeaseCard: LeaseCard,
   },
 
-  data() {},
+  props : {
+    userLeases : Array,  
+  },
 };
 </script>

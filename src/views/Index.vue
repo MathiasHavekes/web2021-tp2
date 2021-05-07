@@ -2,7 +2,7 @@
   <v-layout column class="index">
     <DestinationCarousel />
 
-    <v-layout class="my-12" column align-center wrap>
+    <v-layout class="my-12" column align-center>
       <h1>Des dixaines de voitures disponibles</h1>
       <h2>
         Sauvez la planete en optant pour des modeles electriques ou hybrides !

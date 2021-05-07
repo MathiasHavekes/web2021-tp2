@@ -1,5 +1,5 @@
 <template>
-  <v-card class="container" color="secondary">
+  <v-card color="secondary">
     <v-form v-model="valid" lazy-validation>
       <h2 class="title">Votre compte</h2>
 
@@ -57,7 +57,11 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="background" @click="updateInfo(userInfo)" class="btn-sauvegarde">
+      <v-btn
+        :disabled="!valid"
+        color="background"
+        @click="updateInfo(userInfo)"
+      >
         Sauvegarder
       </v-btn>
     </v-form>
@@ -73,39 +77,39 @@ export default {
 
   data() {
     return {
-    value: String,
-    valueConfirmed: String,
-    valid: true,
+      value: String,
+      valueConfirmed: String,
+      valid: true,
 
-    passwordRules: [
-      (v) => !!v || "Champ obligatoire !",
-      (v) =>
-        (v && v.length >= 8) ||
-        "Votre mot de passe doit contenir au moins 8 caractères!",
-    ],
-
-    passwordConfirmationRules : [
+      passwordRules: [
         (v) => !!v || "Champ obligatoire !",
-        (v) => (v === this.userInfo.password) || "Les mots de passe ne correspondent pas."
+        (v) =>
+          (v && v.length >= 8) ||
+          "Votre mot de passe doit contenir au moins 8 caractères!",
       ],
 
-    nameRules: [(v) => !!v || "Champ obligatoire !"],
-    }
+      passwordConfirmationRules: [
+        (v) => !!v || "Champ obligatoire !",
+        (v) =>
+          v === this.userInfo.password ||
+          "Les mots de passe ne correspondent pas.",
+      ],
+
+      nameRules: [(v) => !!v || "Champ obligatoire !"],
+    };
   },
 
   methods: {
-    updateInfo : async function updateinfo(userInfo){
+    updateInfo: async function updateinfo(userInfo) {
       let isUpdated = await savenewinformation(userInfo);
       if (isUpdated) {
-        this.$router.push("/user/account");
         this.$store.commit("setAlert", {
           type: "success",
-          message:
-            "Vos informations ont été mises à jour !",
+          message: "Vos informations ont été mises à jour !",
           isVisible: true,
         });
       }
-    }
+    },
   },
 };
 </script>
