@@ -48,6 +48,17 @@
             ></v-text-field>
 
             <v-text-field
+              v-model="confimedPassword"
+              :rules="passwordConfirmationRules"
+              label="Confirmation mot de passe"
+              color="antiBackground"
+              :append-icon="valueConfirmed ? 'Aa' : '•'"
+              @click:append="() => (valueConfirmed = !valueConfirmed)"
+              :type="valueConfirmed ? 'password' : 'text'"
+              required
+            ></v-text-field>
+
+            <v-text-field
               v-model="credentials.phoneNumber"
               label="Numéro de téléphone"
               color="antiBackground"
@@ -83,41 +94,53 @@
 import { signup } from "@/api/clients";
 
 export default {
-  data: () => ({
-    credentials: {
-      surname: "",
-      name: "",
-      emailAddress: "",
-      password: "",
-      phoneNumber: "",
-    },
-    value: String,
-    valid: false,
+  data() {
+    return {
+      credentials: {
+        surname: "",
+        name: "",
+        emailAddress: "",
+        password: "",
+        phoneNumber: "",
+      },
+      valid: true,
+      confimedPassword: "",
+      value: String,
+      valueConfirmed: String,
 
-    emailRules: [
-      (v) => !!v || "Champ obligatoire !",
-      (v) => /.+@.+\..+/.test(v) || "Adresse mail invalide",
-    ],
+      emailRules: [
+        (v) => !!v || "Champ obligatoire !",
+        (v) => /.+@.+\..+/.test(v) || "Adresse mail invalide",
+      ],
 
-    passwordRules: [
-      (v) => !!v || "Champ obligatoire !",
-      (v) =>
-        (v && v.length >= 8) ||
-        "Votre mot de passe doit contenir au moins 8 caractères!",
-    ],
+      passwordRules: [
+        (v) => !!v || "Champ obligatoire !",
+        (v) =>
+          (v && v.length >= 8) ||
+          "Votre mot de passe doit contenir au moins 8 caractères!",
+      ],
 
-    nameRules: [(v) => !!v || "Champ obligatoire !"],
-  }),
+      passwordConfirmationRules: [
+        (v) => !!v || "Champ obligatoire !",
+        (v) =>
+          v === this.credentials.password ||
+          "Les mots de passe ne correspondent pas.",
+      ],
+
+      nameRules: [(v) => !!v || "Champ obligatoire !"],
+    };
+  },
 
   methods: {
     createUser: async function createUser(credentials) {
+      credentials.emailAddress = credentials.emailAddress.toLowerCase();
       let inserted = await signup(credentials);
 
       if (inserted.isInserted) {
         this.$router.push("/user/signin");
         this.$store.commit("setAlert", {
           type: "success",
-          message: "Compte crée, vouz pouvez vous connecter",
+          message: "Compte créé, vouz pouvez vous connecter",
           isVisible: true,
         });
       } else {

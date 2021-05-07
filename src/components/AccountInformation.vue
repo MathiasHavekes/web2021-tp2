@@ -46,20 +46,35 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="background" class="btn-sauvegarde">
+      <v-text-field
+        v-model="confimedPassword"
+        :rules="passwordConfirmationRules"
+        label="Confirmez votre mot de passe"
+        color="antiBackground"
+        :append-icon="valueConfirmed ? 'Aa' : '•'"
+        @click:append="() => (valueConfirmed = !valueConfirmed)"
+        :type="valueConfirmed ? 'password' : 'text'"
+        required
+      ></v-text-field>
+
+      <v-btn :disabled="!valid" color="background" @click="updateInfo(userInfo)" class="btn-sauvegarde">
         Sauvegarder
       </v-btn>
     </v-form>
   </v-card>
 </template>
 <script>
+import { savenewinformation } from "@/api/clients";
+
 export default {
   props: {
     userInfo: Object,
   },
 
-  data: () => ({
+  data() {
+    return {
     value: String,
+    valueConfirmed: String,
     valid: true,
 
     passwordRules: [
@@ -69,12 +84,28 @@ export default {
         "Votre mot de passe doit contenir au moins 8 caractères!",
     ],
 
-    nameRules: [(v) => !!v || "Champ obligatoire !"],
-  }),
+    passwordConfirmationRules : [
+        (v) => !!v || "Champ obligatoire !",
+        (v) => (v === this.userInfo.password) || "Les mots de passe ne correspondent pas."
+      ],
 
-  methods: {},
-  created() {
-    console.log(this.userInfo);
+    nameRules: [(v) => !!v || "Champ obligatoire !"],
+    }
+  },
+
+  methods: {
+    updateInfo : async function updateinfo(userInfo){
+      let isUpdated = await savenewinformation(userInfo);
+      if (isUpdated) {
+        this.$router.push("/user/account");
+        this.$store.commit("setAlert", {
+          type: "success",
+          message:
+            "Vos informations ont été mises à jour !",
+          isVisible: true,
+        });
+      }
+    }
   },
 };
 </script>

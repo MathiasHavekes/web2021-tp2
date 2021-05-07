@@ -17,5 +17,9 @@ export async function getUserInformation() {
 }
 
 export async function savenewinformation(information){
-  return (await axios.put('/clients/account/save', {information : information})).data;
+  return (await axios.put('/clients/user/account/updateInfo', {information : information})).data;
+}
+
+export async function getUserLeases(){
+  return (await axios.get('/clients/user/leases')).data;
 }
